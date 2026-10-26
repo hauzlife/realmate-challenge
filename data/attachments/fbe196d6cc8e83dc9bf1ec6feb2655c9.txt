@@ -1,0 +1,11 @@
+2026-10-26 10:31:45,059 DEBUG pytest_bdd.scenario Adding providers for fixture 'pytestbdd_stepimpl_given_que o caminho do feed XML aponta para a fixture do Portal Nexo': [<FixtureDef argname='pytestbdd_stepdef_given_que o caminho do feed XML aponta para a fixture do Portal Nexo' scope='function' baseid='src/tests'>]
+2026-10-26 10:31:45,060 DEBUG pytest_bdd.scenario Adding providers for fixture 'pytestbdd_stepimpl_when_a task Celery import_nexo_properties é disparada': [<FixtureDef argname='pytestbdd_stepdef_when_a task Celery import_nexo_properties é disparada' scope='function' baseid='src/tests/test_nexo_importer.py'>]
+2026-10-26 10:31:45,062 INFO apps.properties.services.importers.nexo Starting Nexo Portal import (run 87) from /Users/anonymous/Projects/customers/realmate/realmate-challenge/src/tests/fixtures/nexo_catalogo.xml
+2026-10-26 10:31:45,065 INFO apps.properties.services.importers.nexo Listing NX-10233 created
+2026-10-26 10:31:45,069 INFO apps.properties.services.importers.nexo Listing NX-10488 created
+2026-10-26 10:31:45,071 INFO apps.properties.services.importers.nexo Listing NX-11002 created
+2026-10-26 10:31:45,072 WARNING apps.properties.services.importers.nexo Listing NX-11288 skipped: required fields are missing
+2026-10-26 10:31:45,072 INFO apps.properties.services.importers.nexo Nexo Portal import finished: 3 created, 0 updated, 1 skipped
+2026-10-26 10:31:45,072 INFO apps.properties.tasks.import_properties ImportRun 87 finished with status SUCCESS
+2026-10-26 10:31:45,072 DEBUG pytest_bdd.scenario Adding providers for fixture 'pytestbdd_stepimpl_then_um ImportRun com status "SUCCESS" é registrado no banco': [<FixtureDef argname='pytestbdd_stepdef_then_um ImportRun com status "{expected_status}" é registrado no banco' scope='function' baseid='src/tests/test_nexo_importer.py'>]
+2026-10-26 10:31:45,073 DEBUG pytest_bdd.scenario Adding providers for fixture 'pytestbdd_stepimpl_then_os 3 imóveis do catálogo ficam disponíveis na base': [<FixtureDef argname='pytestbdd_stepdef_then_os {expected_count:d} imóveis do catálogo ficam disponíveis na base' scope='function' baseid='src/tests/test_nexo_importer.py'>]

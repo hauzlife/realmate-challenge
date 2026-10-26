@@ -1,0 +1,1 @@
+{"id":"7f5a398145e25ce19daf8b060a8df8d7.ae173a76a28b83fe158a515db46803fa","fullName":"specs/nexo_importer.feature:Conversão de preço em formato pt-BR retorna Decimal normalizado","name":"Conversão de preço em formato pt-BR ('3.400,00') retorna Decimal('3400.00')","status":"passed","testResultsByEnv":{"default":"528bc2d6a5d71b16d3d0f04992050512"}}

@@ -1,0 +1,10 @@
+[DEBUG] pytest_bdd.scenario: Adding providers for fixture 'pytestbdd_stepimpl_given_que o caminho do feed XML aponta para a fixture do Portal Nexo': [<FixtureDef argname='pytestbdd_stepdef_given_que o caminho do feed XML aponta para a fixture do Portal Nexo' scope='function' baseid='src/tests'>]
+[DEBUG] pytest_bdd.scenario: Adding providers for fixture 'pytestbdd_stepimpl_when_o NexoImporter executa a importação do catálogo XML': [<FixtureDef argname='pytestbdd_stepdef_when_o NexoImporter executa a importação do catálogo XML' scope='function' baseid='src/tests/test_nexo_importer.py'>]
+[INFO] apps.properties.services.importers.nexo: Starting Nexo Portal import (run 78) from /Users/anonymous/Projects/customers/realmate/realmate-challenge/src/tests/fixtures/nexo_catalogo.xml
+[INFO] apps.properties.services.importers.nexo: Listing NX-10233 created
+[INFO] apps.properties.services.importers.nexo: Listing NX-10488 created
+[INFO] apps.properties.services.importers.nexo: Listing NX-11002 created
+[WARNING] apps.properties.services.importers.nexo: Listing NX-11288 skipped: required fields are missing
+[INFO] apps.properties.services.importers.nexo: Nexo Portal import finished: 3 created, 0 updated, 1 skipped
+[DEBUG] pytest_bdd.scenario: Adding providers for fixture 'pytestbdd_stepimpl_then_a execução fecha com status "SUCCESS" e 3 imóveis criados': [<FixtureDef argname='pytestbdd_stepdef_then_a execução fecha com status "{expected_status}" e {expected_created:d} imóveis criados' scope='function' baseid='src/tests/test_nexo_importer.py'>]
+[DEBUG] pytest_bdd.scenario: Adding providers for fixture 'pytestbdd_stepimpl_then_a base de dados persiste exatamente 3 anúncios válidos': [<FixtureDef argname='pytestbdd_stepdef_then_a base de dados persiste exatamente {expected_count:d} anúncios válidos' scope='function' baseid='src/tests/test_nexo_importer.py'>]

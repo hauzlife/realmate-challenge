@@ -1,0 +1,2 @@
+[DEBUG] pytest_bdd.scenario: Adding providers for fixture 'pytestbdd_stepimpl_when__parse_price recebe o texto "1.250.000,00"': [<FixtureDef argname='pytestbdd_stepdef_when__parse_price recebe o texto "{raw}"' scope='function' baseid='src/tests/test_nexo_importer.py'>]
+[DEBUG] pytest_bdd.scenario: Adding providers for fixture 'pytestbdd_stepimpl_then_o valor decimal retornado é "1250000.00"': [<FixtureDef argname='pytestbdd_stepdef_then_o valor decimal retornado é "{expected}"' scope='function' baseid='src/tests/test_nexo_importer.py'>]

@@ -1,0 +1,1 @@
+{"id":"13390780d04b5b60193370273263dceb.d41d8cd98f00b204e9800998ecf8427e","fullName":"specs/properties_api.feature:GET /api/properties/ retorna imóveis ativos paginados com rótulos legíveis","name":"GET /api/properties/ retorna imóveis ativos paginados com rótulos legíveis","status":"passed","testResultsByEnv":{"default":"9b50a3a696600196d63f78b1ea63fe7b"}}
