@@ -14,3 +14,11 @@ def nexo_feed(settings: Settings) -> Path:
     feed_path = FIXTURES_DIR / "nexo_catalogo.xml"
     settings.NEXO_FEED_PATH = feed_path
     return feed_path
+
+
+@pytest.fixture
+def vitrine_feed(settings: Settings) -> Path:
+    """Point the importer at a small excerpt of the catalog the portal publishes."""
+    feed_path = FIXTURES_DIR / "vitrine_catalogo.json"
+    settings.VITRINE_FEED_PATH = feed_path
+    return feed_path

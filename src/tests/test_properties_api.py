@@ -5,7 +5,7 @@ from decimal import Decimal
 import pytest
 from rest_framework.test import APIClient
 
-from apps.properties.models import Property
+from apps.properties.models import Property, PropertyPhoto
 
 
 @pytest.fixture
@@ -50,3 +50,16 @@ def test_list_filters_by_min_price(api_client: APIClient, sale_property: Propert
     response = api_client.get("/api/properties/", {"min_price": "600000"})
 
     assert response.json()["count"] == 0
+
+
+@pytest.mark.django_db
+def test_list_includes_property_photos(api_client: APIClient, sale_property: Property) -> None:
+    PropertyPhoto.objects.create(
+        property=sale_property, url="https://fotos.vitrineimoveis.com.br/VT-1/01.jpg"
+    )
+
+    response = api_client.get("/api/properties/")
+
+    assert response.json()["results"][0]["photos"] == [
+        "https://fotos.vitrineimoveis.com.br/VT-1/01.jpg"
+    ]
