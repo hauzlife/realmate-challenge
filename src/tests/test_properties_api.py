@@ -6,10 +6,12 @@ from typing import Any
 
 import allure
 import pytest
+from django.db import connection
+from django.test.utils import CaptureQueriesContext
 from pytest_bdd import given, parsers, scenario, then, when
 from rest_framework.test import APIClient
 
-from apps.properties.models import Property
+from apps.properties.models import Property, PropertyPhoto
 
 FEATURE_FILE = "properties_api.feature"
 
@@ -82,6 +84,21 @@ def test_list_filters_by_min_price() -> None:
 )
 def test_list_filters_by_city_transaction_max_price_and_bedrooms() -> None:
     """Scenario: Filtros combinados refinam o catálogo na API."""
+
+
+@allure.epic("API Pública de Imóveis")
+@allure.feature("Listagem e Consulta de Catálogo (/api/properties/)")
+@allure.story("Exibição de Fotos do Imóvel e Eficiência SQL")
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.tag("api", "photos", "n-plus-one", "bdd")
+@allure.title("GET /api/properties/ inclui fotos ordenadas sem introduzir queries N+1 por imóvel")
+@pytest.mark.django_db
+@scenario(
+    FEATURE_FILE,
+    "GET /api/properties/ inclui fotos ordenadas sem introduzir queries N+1 por imóvel",
+)
+def test_list_includes_property_photos() -> None:
+    """Scenario: GET /api/properties/ inclui fotos ordenadas sem introduzir queries N+1."""
 
 
 # ============================================================================
@@ -253,3 +270,78 @@ def then_only_expected_property_is_returned(
     results = api_result["payload"]["results"]
     assert len(results) == 1
     assert results[0]["external_id"] == external_id
+
+
+@given(
+    parsers.parse(
+        'que o imóvel "{external_id}" possui as fotos "{url_1}" e "{url_2}"'
+    )
+)
+@allure.title("🎬 DADO QUE o imóvel {external_id} possui 2 fotos cadastradas")
+def given_property_has_two_photos(external_id: str, url_1: str, url_2: str) -> None:
+    prop = Property.objects.get(external_id=external_id)
+    PropertyPhoto.objects.create(property=prop, url=url_1, position=0)
+    PropertyPhoto.objects.create(property=prop, url=url_2, position=1)
+
+
+@when(
+    parsers.parse('o cliente consulta GET "{endpoint}" monitorando o número de queries SQL'),
+    target_fixture="api_result",
+)
+@allure.title("⚡ QUANDO o cliente consulta GET {endpoint} monitorando queries SQL")
+def when_client_queries_endpoint_monitoring_sql(
+    api_client: APIClient, endpoint: str
+) -> dict[str, Any]:
+    with CaptureQueriesContext(connection) as ctx:
+        response = api_client.get(endpoint)
+    payload = response.json()
+    allure.attach(
+        json.dumps(
+            {
+                "sql_count": len(ctx.captured_queries),
+                "queries": [q["sql"] for q in ctx.captured_queries],
+                "payload": payload,
+            },
+            indent=2,
+            ensure_ascii=False,
+        ),
+        name="api_photos_sql_trace.json",
+        attachment_type=allure.attachment_type.JSON,
+    )
+    return {
+        "status_code": response.status_code,
+        "payload": payload,
+        "sql_count": len(ctx.captured_queries),
+    }
+
+
+@then(
+    parsers.parse(
+        'a API devolve as URLs das fotos do imóvel "{external_id}" na ordem cadastrada'
+    )
+)
+@allure.title(
+    "🎯 ENTÃO a API devolve as URLs das fotos do imóvel {external_id} na ordem cadastrada"
+)
+def then_api_returns_ordered_photos(api_result: dict[str, Any], external_id: str) -> None:
+    results = api_result["payload"]["results"]
+    item = next(r for r in results if r["external_id"] == external_id)
+    assert item["photos"] == [
+        "https://fotos.vitrineimoveis.com.br/VT-1/01.jpg",
+        "https://fotos.vitrineimoveis.com.br/VT-1/02.jpg",
+    ]
+
+
+@then(
+    parsers.parse(
+        "a listagem executa no máximo {max_queries:d} queries SQL sem N+1 em PropertyPhoto"
+    )
+)
+@allure.title(
+    "🛡️ E a listagem executa no máximo {max_queries} queries SQL sem N+1 em PropertyPhoto"
+)
+def then_api_executes_at_most_queries(api_result: dict[str, Any], max_queries: int) -> None:
+    assert api_result["sql_count"] <= max_queries, (
+        f"N+1 queries detectadas ao serializar photos: {api_result['sql_count']} queries "
+        f"executadas (esperado <= {max_queries} com prefetch_related('photos'))"
+    )

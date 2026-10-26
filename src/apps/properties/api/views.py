@@ -28,4 +28,4 @@ class PropertyViewSet(viewsets.ReadOnlyModelViewSet[Property]):
 
     serializer_class = PropertySerializer
     filterset_class = PropertyFilter
-    queryset = Property.objects.filter(is_active=True)
+    queryset = Property.objects.filter(is_active=True).prefetch_related("photos")
