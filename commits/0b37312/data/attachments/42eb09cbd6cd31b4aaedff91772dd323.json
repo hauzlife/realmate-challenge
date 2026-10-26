@@ -1,0 +1,6 @@
+{
+  "test": "src/tests/test_nexo_importer.py::test_parse_price_accepts_portal_format[450000-450000]",
+  "duration_ms": 1.18,
+  "sql_queries_count": 0,
+  "queries": []
+}

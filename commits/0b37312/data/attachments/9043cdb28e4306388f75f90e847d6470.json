@@ -1,0 +1,122 @@
+{
+  "test": "src/tests/test_vitrine_importer.py::test_run_saves_listing_photos_in_portal_order",
+  "duration_ms": 15.64,
+  "sql_queries_count": 23,
+  "queries": [
+    {
+      "index": 1,
+      "time_s": "0.001",
+      "sql": "INSERT INTO \"properties_importrun\" (\"source\", \"status\", \"started_at\", \"finished_at\", \"created_count\", \"updated_count\", \"skipped_count\", \"error_message\") VALUES ('VITRINE', 'RUNNING', '2026-10-26 15:43:20.191024+00:00'::timestamptz, NULL, 0, 0, 0, '') RETURNING \"properties_importrun\".\"id\""
+    },
+    {
+      "index": 2,
+      "time_s": "0.000",
+      "sql": "SELECT \"properties_property\".\"id\", \"properties_property\".\"source\", \"properties_property\".\"external_id\", \"properties_property\".\"title\", \"properties_property\".\"description\", \"properties_property\".\"transaction\", \"properties_property\".\"price\", \"properties_property\".\"bedrooms\", \"properties_property\".\"bathrooms\", \"properties_property\".\"parking_spaces\", \"properties_property\".\"area_m2\", \"properties_property\".\"address\", \"properties_property\".\"neighborhood\", \"properties_property\".\"city\", \"properties_property\".\"state\", \"properties_property\".\"is_active\", \"properties_property\".\"created_at\", \"properties_property\".\"updated_at\" FROM \"properties_property\" WHERE (\"properties_property\".\"external_id\" = 'VT-4471' AND \"properties_property\".\"source\" = 'VITRINE') ORDER BY \"properties_property\".\"updated_at\" DESC LIMIT 1"
+    },
+    {
+      "index": 3,
+      "time_s": "0.000",
+      "sql": "INSERT INTO \"properties_property\" (\"source\", \"external_id\", \"title\", \"description\", \"transaction\", \"price\", \"bedrooms\", \"bathrooms\", \"parking_spaces\", \"area_m2\", \"address\", \"neighborhood\", \"city\", \"state\", \"is_active\", \"created_at\", \"updated_at\") VALUES ('VITRINE', 'VT-4471', 'Apartamento 3 quartos no Buritis', 'Apartamento com varanda gourmet e vista para a serra.', 'SALE', 845000.00, 3, 2, 2, 96, 'Rua Doutor Alfredo Camarate, 155, Apto 902', 'Buritis', 'Belo Horizonte', 'MG', true, '2026-10-26 15:43:20.192850+00:00'::timestamptz, '2026-10-26 15:43:20.192856+00:00'::timestamptz) RETURNING \"properties_property\".\"id\""
+    },
+    {
+      "index": 4,
+      "time_s": "0.000",
+      "sql": "SAVEPOINT \"s8681930624_x52\""
+    },
+    {
+      "index": 5,
+      "time_s": "0.000",
+      "sql": "DELETE FROM \"properties_propertyphoto\" WHERE \"properties_propertyphoto\".\"property_id\" = 509"
+    },
+    {
+      "index": 6,
+      "time_s": "0.000",
+      "sql": "INSERT INTO \"properties_propertyphoto\" (\"property_id\", \"url\", \"position\") VALUES (509, 'https://fotos.vitrineimoveis.com.br/VT-4471/01.jpg', 0), (509, 'https://fotos.vitrineimoveis.com.br/VT-4471/02.jpg', 1), (509, 'https://fotos.vitrineimoveis.com.br/VT-4471/03.jpg', 2) RETURNING \"properties_propertyphoto\".\"id\""
+    },
+    {
+      "index": 7,
+      "time_s": "0.000",
+      "sql": "RELEASE SAVEPOINT \"s8681930624_x52\""
+    },
+    {
+      "index": 8,
+      "time_s": "0.000",
+      "sql": "SELECT \"properties_property\".\"id\", \"properties_property\".\"source\", \"properties_property\".\"external_id\", \"properties_property\".\"title\", \"properties_property\".\"description\", \"properties_property\".\"transaction\", \"properties_property\".\"price\", \"properties_property\".\"bedrooms\", \"properties_property\".\"bathrooms\", \"properties_property\".\"parking_spaces\", \"properties_property\".\"area_m2\", \"properties_property\".\"address\", \"properties_property\".\"neighborhood\", \"properties_property\".\"city\", \"properties_property\".\"state\", \"properties_property\".\"is_active\", \"properties_property\".\"created_at\", \"properties_property\".\"updated_at\" FROM \"properties_property\" WHERE (\"properties_property\".\"external_id\" = 'VT-4519' AND \"properties_property\".\"source\" = 'VITRINE') ORDER BY \"properties_property\".\"updated_at\" DESC LIMIT 1"
+    },
+    {
+      "index": 9,
+      "time_s": "0.000",
+      "sql": "INSERT INTO \"properties_property\" (\"source\", \"external_id\", \"title\", \"description\", \"transaction\", \"price\", \"bedrooms\", \"bathrooms\", \"parking_spaces\", \"area_m2\", \"address\", \"neighborhood\", \"city\", \"state\", \"is_active\", \"created_at\", \"updated_at\") VALUES ('VITRINE', 'VT-4519', 'Casa 3 quartos no Castelo', 'Casa geminada, dois pavimentos, quintal nos fundos.', 'SALE', 1180000.00, 3, 3, 2, 180, 'Rua Alcides Lins, 402', 'Castelo', 'Belo Horizonte', 'MG', false, '2026-10-26 15:43:20.195907+00:00'::timestamptz, '2026-10-26 15:43:20.195915+00:00'::timestamptz) RETURNING \"properties_property\".\"id\""
+    },
+    {
+      "index": 10,
+      "time_s": "0.000",
+      "sql": "SAVEPOINT \"s8681930624_x53\""
+    },
+    {
+      "index": 11,
+      "time_s": "0.000",
+      "sql": "DELETE FROM \"properties_propertyphoto\" WHERE \"properties_propertyphoto\".\"property_id\" = 510"
+    },
+    {
+      "index": 12,
+      "time_s": "0.000",
+      "sql": "INSERT INTO \"properties_propertyphoto\" (\"property_id\", \"url\", \"position\") VALUES (510, 'https://fotos.vitrineimoveis.com.br/VT-4519/01.jpg', 0), (510, 'https://fotos.vitrineimoveis.com.br/VT-4519/02.jpg', 1) RETURNING \"properties_propertyphoto\".\"id\""
+    },
+    {
+      "index": 13,
+      "time_s": "0.000",
+      "sql": "RELEASE SAVEPOINT \"s8681930624_x53\""
+    },
+    {
+      "index": 14,
+      "time_s": "0.000",
+      "sql": "SELECT \"properties_property\".\"id\", \"properties_property\".\"source\", \"properties_property\".\"external_id\", \"properties_property\".\"title\", \"properties_property\".\"description\", \"properties_property\".\"transaction\", \"properties_property\".\"price\", \"properties_property\".\"bedrooms\", \"properties_property\".\"bathrooms\", \"properties_property\".\"parking_spaces\", \"properties_property\".\"area_m2\", \"properties_property\".\"address\", \"properties_property\".\"neighborhood\", \"properties_property\".\"city\", \"properties_property\".\"state\", \"properties_property\".\"is_active\", \"properties_property\".\"created_at\", \"properties_property\".\"updated_at\" FROM \"properties_property\" WHERE (\"properties_property\".\"external_id\" = 'VT-4623' AND \"properties_property\".\"source\" = 'VITRINE') ORDER BY \"properties_property\".\"updated_at\" DESC LIMIT 1"
+    },
+    {
+      "index": 15,
+      "time_s": "0.000",
+      "sql": "INSERT INTO \"properties_property\" (\"source\", \"external_id\", \"title\", \"description\", \"transaction\", \"price\", \"bedrooms\", \"bathrooms\", \"parking_spaces\", \"area_m2\", \"address\", \"neighborhood\", \"city\", \"state\", \"is_active\", \"created_at\", \"updated_at\") VALUES ('VITRINE', 'VT-4623', 'Apartamento 2 quartos no Ouro Preto', 'Com armarios planejados e area de servico.', 'RENT', 2890.00, 2, 1, 1, 68, 'Rua Fernandes Tourinho, 88, Apto 301', 'Ouro Preto', 'Belo Horizonte', 'MG', true, '2026-10-26 15:43:20.198627+00:00'::timestamptz, '2026-10-26 15:43:20.198634+00:00'::timestamptz) RETURNING \"properties_property\".\"id\""
+    },
+    {
+      "index": 16,
+      "time_s": "0.000",
+      "sql": "SAVEPOINT \"s8681930624_x54\""
+    },
+    {
+      "index": 17,
+      "time_s": "0.000",
+      "sql": "DELETE FROM \"properties_propertyphoto\" WHERE \"properties_propertyphoto\".\"property_id\" = 511"
+    },
+    {
+      "index": 18,
+      "time_s": "0.000",
+      "sql": "INSERT INTO \"properties_propertyphoto\" (\"property_id\", \"url\", \"position\") VALUES (511, 'https://fotos.vitrineimoveis.com.br/VT-4623/01.jpg', 0), (511, 'https://fotos.vitrineimoveis.com.br/VT-4623/02.jpg', 1) RETURNING \"properties_propertyphoto\".\"id\""
+    },
+    {
+      "index": 19,
+      "time_s": "0.000",
+      "sql": "RELEASE SAVEPOINT \"s8681930624_x54\""
+    },
+    {
+      "index": 20,
+      "time_s": "0.000",
+      "sql": "UPDATE \"properties_property\" SET \"is_active\" = false, \"updated_at\" = '2026-10-26 15:43:20.200495+00:00'::timestamptz WHERE (\"properties_property\".\"is_active\" AND \"properties_property\".\"source\" = 'VITRINE' AND NOT (\"properties_property\".\"external_id\" IN ('VT-4519', 'VT-4623', 'VT-4802', 'VT-4471')))"
+    },
+    {
+      "index": 21,
+      "time_s": "0.000",
+      "sql": "UPDATE \"properties_importrun\" SET \"status\" = 'SUCCESS', \"finished_at\" = '2026-10-26 15:43:20.200896+00:00'::timestamptz, \"created_count\" = 3, \"updated_count\" = 0, \"skipped_count\" = 1 WHERE \"properties_importrun\".\"id\" = 201"
+    },
+    {
+      "index": 22,
+      "time_s": "0.000",
+      "sql": "SELECT \"properties_property\".\"id\", \"properties_property\".\"source\", \"properties_property\".\"external_id\", \"properties_property\".\"title\", \"properties_property\".\"description\", \"properties_property\".\"transaction\", \"properties_property\".\"price\", \"properties_property\".\"bedrooms\", \"properties_property\".\"bathrooms\", \"properties_property\".\"parking_spaces\", \"properties_property\".\"area_m2\", \"properties_property\".\"address\", \"properties_property\".\"neighborhood\", \"properties_property\".\"city\", \"properties_property\".\"state\", \"properties_property\".\"is_active\", \"properties_property\".\"created_at\", \"properties_property\".\"updated_at\" FROM \"properties_property\" WHERE \"properties_property\".\"external_id\" = 'VT-4471' LIMIT 21"
+    },
+    {
+      "index": 23,
+      "time_s": "0.000",
+      "sql": "SELECT \"properties_propertyphoto\".\"url\" FROM \"properties_propertyphoto\" WHERE \"properties_propertyphoto\".\"property_id\" = 509 ORDER BY \"properties_propertyphoto\".\"position\" ASC"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalogo portal="Portal Nexo" gerado_em="2026-08-13T03:00:00-03:00">
+  <imovel>
+    <codigo>NX-10233</codigo>
+    <titulo>Apartamento 3 quartos no Funcionarios</titulo>
+    <descricao>Apartamento reformado, andar alto, com vista livre.</descricao>
+    <tipo_negocio>venda</tipo_negocio>
+    <valor>1.250.000,00</valor>
+    <dormitorios>3</dormitorios>
+    <banheiros>2</banheiros>
+    <vagas>2</vagas>
+    <area_util>118</area_util>
+    <situacao>disponivel</situacao>
+    <fotos>
+      <foto>https://fotos.portalnexo.com.br/NX-10233/01.jpg</foto>
+      <foto>https://fotos.portalnexo.com.br/NX-10233/02.jpg</foto>
+      <foto>https://fotos.portalnexo.com.br/NX-10233/03.jpg</foto>
+    </fotos>
+    <endereco>
+      <logradouro>Rua Antonio de Albuquerque</logradouro>
+      <numero>740</numero>
+      <complemento>Apto 1201</complemento>
+      <bairro>Funcionarios</bairro>
+      <cidade>Belo Horizonte</cidade>
+      <uf>MG</uf>
+    </endereco>
+  </imovel>
+  <imovel>
+    <codigo>NX-10488</codigo>
+    <titulo>Casa 4 quartos no Bandeirantes</titulo>
+    <descricao>Casa em rua tranquila, quintal amplo.</descricao>
+    <tipo_negocio>venda</tipo_negocio>
+    <valor>890.000,00</valor>
+    <dormitorios>4</dormitorios>
+    <banheiros>3</banheiros>
+    <vagas>3</vagas>
+    <area_util>245</area_util>
+    <situacao>vendido</situacao>
+    <fotos>
+      <foto>https://fotos.portalnexo.com.br/NX-10488/01.jpg</foto>
+      <foto>https://fotos.portalnexo.com.br/NX-10488/02.jpg</foto>
+    </fotos>
+    <endereco>
+      <logradouro>Rua Deputado Bernardino Vaz</logradouro>
+      <numero>310</numero>
+      <complemento></complemento>
+      <bairro>Bandeirantes</bairro>
+      <cidade>Belo Horizonte</cidade>
+      <uf>MG</uf>
+    </endereco>
+  </imovel>
+  <imovel>
+    <codigo>NX-11002</codigo>
+    <titulo>Studio mobiliado no Savassi</titulo>
+    <descricao>Studio compacto, mobiliado, pronto para morar.</descricao>
+    <tipo_negocio>aluguel</tipo_negocio>
+    <valor>3.400,00</valor>
+    <dormitorios>1</dormitorios>
+    <banheiros>1</banheiros>
+    <vagas>1</vagas>
+    <area_util>38</area_util>
+    <situacao>disponivel</situacao>
+    <fotos>
+      <foto>https://fotos.portalnexo.com.br/NX-11002/01.jpg</foto>
+      <foto>https://fotos.portalnexo.com.br/NX-11002/02.jpg</foto>
+    </fotos>
+    <endereco>
+      <logradouro>Rua Pernambuco</logradouro>
+      <numero>1255</numero>
+      <complemento>Apto 402</complemento>
+      <bairro>Savassi</bairro>
+      <cidade>Belo Horizonte</cidade>
+      <uf>MG</uf>
+    </endereco>
+  </imovel>
+  <imovel>
+    <codigo>NX-11288</codigo>
+    <titulo>Lote no Belvedere</titulo>
+    <descricao>Lote plano em condominio fechado.</descricao>
+    <tipo_negocio>venda</tipo_negocio>
+    <valor></valor>
+    <dormitorios>0</dormitorios>
+    <banheiros>0</banheiros>
+    <vagas>0</vagas>
+    <area_util>600</area_util>
+    <situacao>disponivel</situacao>
+    <fotos>
+      <foto>https://fotos.portalnexo.com.br/NX-11288/01.jpg</foto>
+    </fotos>
+    <endereco>
+      <logradouro>Rua Sao Paulo</logradouro>
+      <numero>90</numero>
+      <complemento></complemento>
+      <bairro>Belvedere</bairro>
+      <cidade>Belo Horizonte</cidade>
+      <uf>MG</uf>
+    </endereco>
+  </imovel>
+</catalogo>

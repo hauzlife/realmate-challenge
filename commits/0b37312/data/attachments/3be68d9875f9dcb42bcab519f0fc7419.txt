@@ -1,0 +1,1 @@
+[Errno 2] No such file or directory: '/private/var/folders/j_/bn4vhk552h3bcj72vlldv88m0000gn/T/pytest-of-anonymous/pytest-18/test_run_fails_when_feed_is_mi0/inexistente.xml'

@@ -1,0 +1,17 @@
+{
+  "test": "src/tests/test_nexo_importer.py::test_run_fails_when_feed_is_missing",
+  "duration_ms": 6.78,
+  "sql_queries_count": 2,
+  "queries": [
+    {
+      "index": 1,
+      "time_s": "0.001",
+      "sql": "INSERT INTO \"properties_importrun\" (\"source\", \"status\", \"started_at\", \"finished_at\", \"created_count\", \"updated_count\", \"skipped_count\", \"error_message\") VALUES ('NEXO', 'RUNNING', '2026-10-26 15:43:19.823779+00:00'::timestamptz, NULL, 0, 0, 0, '') RETURNING \"properties_importrun\".\"id\""
+    },
+    {
+      "index": 2,
+      "time_s": "0.001",
+      "sql": "UPDATE \"properties_importrun\" SET \"status\" = 'FAILED', \"finished_at\" = '2026-10-26 15:43:19.826168+00:00'::timestamptz, \"error_message\" = '[Errno 2] No such file or directory: ''/private/var/folders/j_/bn4vhk552h3bcj72vlldv88m0000gn/T/pytest-of-anonymous/pytest-18/test_run_fails_when_feed_is_mi0/inexistente.xml''' WHERE \"properties_importrun\".\"id\" = 190"
+    }
+  ]
+}

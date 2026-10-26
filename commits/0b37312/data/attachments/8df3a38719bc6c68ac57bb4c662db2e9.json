@@ -1,0 +1,12 @@
+{
+  "test": "src/tests/test_vitrine_importer.py::test_vitrine_skips_unreadable_price_and_unknown_transaction",
+  "duration_ms": 3.53,
+  "sql_queries_count": 1,
+  "queries": [
+    {
+      "index": 1,
+      "time_s": "0.001",
+      "sql": "INSERT INTO \"properties_importrun\" (\"source\", \"status\", \"started_at\", \"finished_at\", \"created_count\", \"updated_count\", \"skipped_count\", \"error_message\") VALUES ('VITRINE', 'RUNNING', '2026-10-26 15:43:20.296070+00:00'::timestamptz, NULL, 0, 0, 0, '') RETURNING \"properties_importrun\".\"id\""
+    }
+  ]
+}

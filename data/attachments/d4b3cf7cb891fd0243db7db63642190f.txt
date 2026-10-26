@@ -1,0 +1,17 @@
+2026-10-26 12:43:20,117 DEBUG pytest_bdd.scenario Adding providers for fixture 'pytestbdd_stepimpl_given_que o caminho do feed JSON aponta para a fixture do Vitrine Imóveis': [<FixtureDef argname='pytestbdd_stepdef_given_que o caminho do feed JSON aponta para a fixture do Vitrine Imóveis' scope='function' baseid='src/tests'>]
+2026-10-26 12:43:20,118 DEBUG pytest_bdd.scenario Adding providers for fixture 'pytestbdd_stepimpl_given_que o catálogo do Vitrine foi importado e o imóvel "VT-4471" teve o título alterado para "titulo antigo"': [<FixtureDef argname='pytestbdd_stepdef_given_que o catálogo do Vitrine foi importado e o imóvel "{external_id}" teve o título alterado para "{old_title}"' scope='function' baseid='src/tests/test_vitrine_importer.py'>]
+2026-10-26 12:43:20,121 INFO apps.properties.services.importers.base Starting Vitrine import (run 199) from /Users/anonymous/Projects/customers/realmate/realmate-challenge/src/tests/fixtures/vitrine_catalogo.json
+2026-10-26 12:43:20,124 INFO apps.properties.services.importers.base Listing VT-4471 created
+2026-10-26 12:43:20,126 INFO apps.properties.services.importers.base Listing VT-4519 created
+2026-10-26 12:43:20,129 INFO apps.properties.services.importers.base Listing VT-4623 created
+2026-10-26 12:43:20,129 WARNING apps.properties.services.importers.vitrine Listing VT-4802 skipped: required fields are missing
+2026-10-26 12:43:20,130 INFO apps.properties.services.importers.base Vitrine import finished: 3 created, 0 updated, 1 skipped
+2026-10-26 12:43:20,130 DEBUG pytest_bdd.scenario Adding providers for fixture 'pytestbdd_stepimpl_when_o VitrineImporter executa a importação do catálogo JSON': [<FixtureDef argname='pytestbdd_stepdef_when_o VitrineImporter executa a importação do catálogo JSON' scope='function' baseid='src/tests/test_vitrine_importer.py'>]
+2026-10-26 12:43:20,131 INFO apps.properties.services.importers.base Starting Vitrine import (run 200) from /Users/anonymous/Projects/customers/realmate/realmate-challenge/src/tests/fixtures/vitrine_catalogo.json
+2026-10-26 12:43:20,133 INFO apps.properties.services.importers.base Listing VT-4471 updated
+2026-10-26 12:43:20,136 INFO apps.properties.services.importers.base Listing VT-4519 updated
+2026-10-26 12:43:20,138 INFO apps.properties.services.importers.base Listing VT-4623 updated
+2026-10-26 12:43:20,138 WARNING apps.properties.services.importers.vitrine Listing VT-4802 skipped: required fields are missing
+2026-10-26 12:43:20,178 INFO apps.properties.services.importers.base Vitrine import finished: 0 created, 3 updated, 1 skipped
+2026-10-26 12:43:20,178 DEBUG pytest_bdd.scenario Adding providers for fixture 'pytestbdd_stepimpl_then_o imóvel "VT-4471" recupera o título "Apartamento 3 quartos no Buritis" e preço "845000.00"': [<FixtureDef argname='pytestbdd_stepdef_then_o imóvel "{external_id}" recupera o título "{expected_title}" e preço "{expected_price}"' scope='function' baseid='src/tests/test_vitrine_importer.py'>]
+2026-10-26 12:43:20,180 DEBUG pytest_bdd.scenario Adding providers for fixture 'pytestbdd_stepimpl_then_o total de imóveis do Vitrine permanece 3 com updated_count igual a 3': [<FixtureDef argname='pytestbdd_stepdef_then_o total de imóveis do Vitrine permanece {expected_total:d} com updated_count igual a {expected_updated:d}' scope='function' baseid='src/tests/test_vitrine_importer.py'>]

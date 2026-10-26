@@ -1,0 +1,6 @@
+{
+  "test": "src/tests/test_nexo_importer.py::test_parse_price_returns_none_for_invalid_value",
+  "duration_ms": 1.08,
+  "sql_queries_count": 0,
+  "queries": []
+}

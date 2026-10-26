@@ -1,0 +1,19 @@
+DEBUG    pytest_bdd.scenario:scenario.py:159 Adding providers for fixture 'pytestbdd_stepimpl_given_que o caminho do feed aponta para um arquivo XML inexistente': [<FixtureDef argname='pytestbdd_stepdef_given_que o caminho do feed aponta para um arquivo XML inexistente' scope='function' baseid='src/tests/test_nexo_importer.py'>]
+DEBUG    pytest_bdd.scenario:scenario.py:159 Adding providers for fixture 'pytestbdd_stepimpl_when_o NexoImporter tenta executar a importação do arquivo ausente': [<FixtureDef argname='pytestbdd_stepdef_when_o NexoImporter tenta executar a importação do arquivo ausente' scope='function' baseid='src/tests/test_nexo_importer.py'>]
+INFO     apps.properties.services.importers.base:base.py:44 Starting Nexo Portal import (run 190) from /private/var/folders/j_/bn4vhk552h3bcj72vlldv88m0000gn/T/pytest-of-anonymous/pytest-18/test_run_fails_when_feed_is_mi0/inexistente.xml
+ERROR    apps.properties.services.importers.base:base.py:54 Could not read the Nexo Portal catalog at /private/var/folders/j_/bn4vhk552h3bcj72vlldv88m0000gn/T/pytest-of-anonymous/pytest-18/test_run_fails_when_feed_is_mi0/inexistente.xml
+Traceback (most recent call last):
+  File "/Users/anonymous/Projects/customers/realmate/realmate-challenge/src/apps/properties/services/importers/base.py", line 52, in run
+    listings = self._read_listings()
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anonymous/Projects/customers/realmate/realmate-challenge/src/apps/properties/services/importers/nexo.py", line 55, in _read_listings
+    root = ElementTree.parse(self.feed_path).getroot()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anonymous/.local/share/uv/python/cpython-3.11-macos-aarch64-none/lib/python3.11/xml/etree/ElementTree.py", line 1219, in parse
+    tree.parse(source, parser)
+  File "/Users/anonymous/.local/share/uv/python/cpython-3.11-macos-aarch64-none/lib/python3.11/xml/etree/ElementTree.py", line 570, in parse
+    source = open(source, "rb")
+             ^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/j_/bn4vhk552h3bcj72vlldv88m0000gn/T/pytest-of-anonymous/pytest-18/test_run_fails_when_feed_is_mi0/inexistente.xml'
+DEBUG    pytest_bdd.scenario:scenario.py:159 Adding providers for fixture 'pytestbdd_stepimpl_then_o ImportRun termina com status "FAILED" sem lançar exceção não tratada': [<FixtureDef argname='pytestbdd_stepdef_then_o ImportRun termina com status "{expected_status}" sem lançar exceção não tratada' scope='function' baseid='src/tests/test_nexo_importer.py'>]
+DEBUG    pytest_bdd.scenario:scenario.py:159 Adding providers for fixture 'pytestbdd_stepimpl_then_a mensagem do erro e o timestamp finished_at ficam preenchidos': [<FixtureDef argname='pytestbdd_stepdef_then_a mensagem do erro e o timestamp finished_at ficam preenchidos' scope='function' baseid='src/tests/test_nexo_importer.py'>]

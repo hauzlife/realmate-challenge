@@ -1,0 +1,1 @@
+{"id":"3a423aa2c8417194daac16c263cbc639.d41d8cd98f00b204e9800998ecf8427e","fullName":"specs/vitrine_importer.feature:Anúncio marcado como vendido no JSON do Vitrine é salvo como inativo","name":"Anúncio marcado como 'vendido' no JSON do Vitrine é salvo como inativo (is_active=False)","status":"passed","testResultsByEnv":{"default":"ed41a721347aad15aa792701e0533da1"}}
