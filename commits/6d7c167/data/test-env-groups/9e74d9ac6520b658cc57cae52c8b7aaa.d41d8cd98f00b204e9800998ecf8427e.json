@@ -1,0 +1,1 @@
+{"id":"9e74d9ac6520b658cc57cae52c8b7aaa.d41d8cd98f00b204e9800998ecf8427e","fullName":"specs/nexo_importer.feature:Anúncio marcado como vendido no XML é salvo como inativo","name":"Anúncio marcado como 'vendido' no XML é salvo como inativo (is_active=False)","status":"passed","testResultsByEnv":{"default":"c5496043e62b9f1a01e5f6cad2a0d8ee"}}

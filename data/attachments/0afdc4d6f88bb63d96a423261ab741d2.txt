@@ -1,0 +1,10 @@
+2026-10-26 12:02:12,506 DEBUG pytest_bdd.scenario Adding providers for fixture 'pytestbdd_stepimpl_given_que o caminho do feed JSON aponta para a fixture do Vitrine Imóveis': [<FixtureDef argname='pytestbdd_stepdef_given_que o caminho do feed JSON aponta para a fixture do Vitrine Imóveis' scope='function' baseid='src/tests'>]
+2026-10-26 12:02:12,506 DEBUG pytest_bdd.scenario Adding providers for fixture 'pytestbdd_stepimpl_given_que o anúncio "VT-4744" do Vitrine estava ativo na base após uma carga anterior': [<FixtureDef argname='pytestbdd_stepdef_given_que o anúncio "{external_id}" do Vitrine estava ativo na base após uma carga anterior' scope='function' baseid='src/tests/test_vitrine_importer.py'>]
+2026-10-26 12:02:12,507 DEBUG pytest_bdd.scenario Adding providers for fixture 'pytestbdd_stepimpl_when_o VitrineImporter executa a importação do catálogo JSON': [<FixtureDef argname='pytestbdd_stepdef_when_o VitrineImporter executa a importação do catálogo JSON' scope='function' baseid='src/tests/test_vitrine_importer.py'>]
+2026-10-26 12:02:12,508 INFO apps.properties.services.importers.vitrine Starting Vitrine import (run 147) from /Users/anonymous/Projects/customers/realmate/realmate-challenge/src/tests/fixtures/vitrine_catalogo.json
+2026-10-26 12:02:12,511 INFO apps.properties.services.importers.vitrine Listing VT-4471 created
+2026-10-26 12:02:12,513 INFO apps.properties.services.importers.vitrine Listing VT-4519 created
+2026-10-26 12:02:12,515 INFO apps.properties.services.importers.vitrine Listing VT-4623 created
+2026-10-26 12:02:12,515 WARNING apps.properties.services.importers.vitrine Listing VT-4802 skipped: required fields are missing
+2026-10-26 12:02:12,516 INFO apps.properties.services.importers.vitrine Vitrine import finished: 3 created, 0 updated, 1 skipped
+2026-10-26 12:02:12,516 DEBUG pytest_bdd.scenario Adding providers for fixture 'pytestbdd_stepimpl_then_o imóvel removido "VT-4744" fica persistido com is_active falso': [<FixtureDef argname='pytestbdd_stepdef_then_o imóvel removido "{external_id}" fica persistido com is_active falso' scope='function' baseid='src/tests/test_vitrine_importer.py'>]

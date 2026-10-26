@@ -1,0 +1,1 @@
+{"id":"2197d313a94aa68a5dd911e9bf01d349.d41d8cd98f00b204e9800998ecf8427e","fullName":"specs/properties_api.feature:GET /api/properties/ omite imóveis marcados como inativos","name":"GET /api/properties/ omite imóveis marcados como inativos (is_active=False)","status":"passed","testResultsByEnv":{"default":"729b5ecaec29a20d2bd53995814dff63"}}

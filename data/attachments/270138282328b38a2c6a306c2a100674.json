@@ -1,0 +1,22 @@
+{
+  "test": "src/tests/test_properties_api.py::test_list_hides_inactive_properties",
+  "duration_ms": 6.72,
+  "sql_queries_count": 3,
+  "queries": [
+    {
+      "index": 1,
+      "time_s": "0.001",
+      "sql": "INSERT INTO \"properties_property\" (\"source\", \"external_id\", \"title\", \"description\", \"transaction\", \"price\", \"bedrooms\", \"bathrooms\", \"parking_spaces\", \"area_m2\", \"address\", \"neighborhood\", \"city\", \"state\", \"is_active\", \"created_at\", \"updated_at\") VALUES ('NEXO', 'NX-1', 'Apartamento 2 quartos', '', 'SALE', 500000.00, 2, 0, 0, NULL, 'Rua A, 100', '', 'Belo Horizonte', 'MG', true, '2026-10-26 15:02:12.263471+00:00'::timestamptz, '2026-10-26 15:02:12.263479+00:00'::timestamptz) RETURNING \"properties_property\".\"id\""
+    },
+    {
+      "index": 2,
+      "time_s": "0.001",
+      "sql": "UPDATE \"properties_property\" SET \"is_active\" = false WHERE \"properties_property\".\"external_id\" = 'NX-1'"
+    },
+    {
+      "index": 3,
+      "time_s": "0.001",
+      "sql": "SELECT COUNT(*) AS \"__count\" FROM \"properties_property\" WHERE \"properties_property\".\"is_active\""
+    }
+  ]
+}

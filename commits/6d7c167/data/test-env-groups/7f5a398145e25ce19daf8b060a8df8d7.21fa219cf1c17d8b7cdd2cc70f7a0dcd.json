@@ -1,0 +1,1 @@
+{"id":"7f5a398145e25ce19daf8b060a8df8d7.21fa219cf1c17d8b7cdd2cc70f7a0dcd","fullName":"specs/nexo_importer.feature:Conversão de preço em formato pt-BR retorna Decimal normalizado","name":"Conversão de preço em formato pt-BR ('890,50') retorna Decimal('890.50')","status":"passed","testResultsByEnv":{"default":"934f2877fdc9bbad5865e842f0bb06ec"}}

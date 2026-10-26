@@ -1,0 +1,10 @@
+2026-10-26 12:02:11,997 DEBUG pytest_bdd.scenario Adding providers for fixture 'pytestbdd_stepimpl_given_que o caminho do feed XML aponta para a fixture do Portal Nexo': [<FixtureDef argname='pytestbdd_stepdef_given_que o caminho do feed XML aponta para a fixture do Portal Nexo' scope='function' baseid='src/tests'>]
+2026-10-26 12:02:11,998 DEBUG pytest_bdd.scenario Adding providers for fixture 'pytestbdd_stepimpl_when_o NexoImporter processa o feed contendo item sem preço numérico': [<FixtureDef argname='pytestbdd_stepdef_when_o NexoImporter processa o feed contendo item sem preço numérico' scope='function' baseid='src/tests/test_nexo_importer.py'>]
+2026-10-26 12:02:11,999 INFO apps.properties.services.importers.nexo Starting Nexo Portal import (run 131) from /Users/anonymous/Projects/customers/realmate/realmate-challenge/src/tests/fixtures/nexo_catalogo.xml
+2026-10-26 12:02:12,001 INFO apps.properties.services.importers.nexo Listing NX-10233 created
+2026-10-26 12:02:12,003 INFO apps.properties.services.importers.nexo Listing NX-10488 created
+2026-10-26 12:02:12,005 INFO apps.properties.services.importers.nexo Listing NX-11002 created
+2026-10-26 12:02:12,005 WARNING apps.properties.services.importers.nexo Listing NX-11288 skipped: required fields are missing
+2026-10-26 12:02:12,006 INFO apps.properties.services.importers.nexo Nexo Portal import finished: 3 created, 0 updated, 1 skipped
+2026-10-26 12:02:12,007 DEBUG pytest_bdd.scenario Adding providers for fixture 'pytestbdd_stepimpl_then_o contador skipped_count registra 1 anúncio descartado': [<FixtureDef argname='pytestbdd_stepdef_then_o contador skipped_count registra {expected_skipped:d} anúncio descartado' scope='function' baseid='src/tests/test_nexo_importer.py'>]
+2026-10-26 12:02:12,007 DEBUG pytest_bdd.scenario Adding providers for fixture 'pytestbdd_stepimpl_then_o anúncio inválido "NX-11288" não é gravado na tabela Property': [<FixtureDef argname='pytestbdd_stepdef_then_o anúncio inválido "{external_id}" não é gravado na tabela Property' scope='function' baseid='src/tests/test_nexo_importer.py'>]

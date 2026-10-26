@@ -1,0 +1,10 @@
+[DEBUG] pytest_bdd.scenario: Adding providers for fixture 'pytestbdd_stepimpl_given_que o caminho do feed JSON aponta para a fixture do Vitrine Imóveis': [<FixtureDef argname='pytestbdd_stepdef_given_que o caminho do feed JSON aponta para a fixture do Vitrine Imóveis' scope='function' baseid='src/tests'>]
+[DEBUG] pytest_bdd.scenario: Adding providers for fixture 'pytestbdd_stepimpl_when_a task Celery import_vitrine_properties é disparada': [<FixtureDef argname='pytestbdd_stepdef_when_a task Celery import_vitrine_properties é disparada' scope='function' baseid='src/tests/test_vitrine_importer.py'>]
+[INFO] apps.properties.services.importers.vitrine: Starting Vitrine import (run 154) from /Users/anonymous/Projects/customers/realmate/realmate-challenge/src/tests/fixtures/vitrine_catalogo.json
+[INFO] apps.properties.services.importers.vitrine: Listing VT-4471 created
+[INFO] apps.properties.services.importers.vitrine: Listing VT-4519 created
+[INFO] apps.properties.services.importers.vitrine: Listing VT-4623 created
+[WARNING] apps.properties.services.importers.vitrine: Listing VT-4802 skipped: required fields are missing
+[INFO] apps.properties.services.importers.vitrine: Vitrine import finished: 3 created, 0 updated, 1 skipped
+[INFO] apps.properties.tasks.import_properties: ImportRun 154 finished with status SUCCESS
+[DEBUG] pytest_bdd.scenario: Adding providers for fixture 'pytestbdd_stepimpl_then_um ImportRun da fonte VITRINE com status "SUCCESS" é registrado no banco': [<FixtureDef argname='pytestbdd_stepdef_then_um ImportRun da fonte VITRINE com status "{expected_status}" é registrado no banco' scope='function' baseid='src/tests/test_vitrine_importer.py'>]

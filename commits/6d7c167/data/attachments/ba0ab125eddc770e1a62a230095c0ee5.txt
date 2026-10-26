@@ -1,0 +1,10 @@
+[DEBUG] pytest_bdd.scenario: Adding providers for fixture 'pytestbdd_stepimpl_given_que o caminho do feed JSON aponta para a fixture do Vitrine Imóveis': [<FixtureDef argname='pytestbdd_stepdef_given_que o caminho do feed JSON aponta para a fixture do Vitrine Imóveis' scope='function' baseid='src/tests'>]
+[DEBUG] pytest_bdd.scenario: Adding providers for fixture 'pytestbdd_stepimpl_when_o VitrineImporter executa a importação do catálogo JSON': [<FixtureDef argname='pytestbdd_stepdef_when_o VitrineImporter executa a importação do catálogo JSON' scope='function' baseid='src/tests/test_vitrine_importer.py'>]
+[INFO] apps.properties.services.importers.vitrine: Starting Vitrine import (run 144) from /Users/anonymous/Projects/customers/realmate/realmate-challenge/src/tests/fixtures/vitrine_catalogo.json
+[INFO] apps.properties.services.importers.vitrine: Listing VT-4471 created
+[INFO] apps.properties.services.importers.vitrine: Listing VT-4519 created
+[INFO] apps.properties.services.importers.vitrine: Listing VT-4623 created
+[WARNING] apps.properties.services.importers.vitrine: Listing VT-4802 skipped: required fields are missing
+[INFO] apps.properties.services.importers.vitrine: Vitrine import finished: 3 created, 0 updated, 1 skipped
+[DEBUG] pytest_bdd.scenario: Adding providers for fixture 'pytestbdd_stepimpl_then_a execução do Vitrine fecha com status "SUCCESS" e 3 imóveis criados': [<FixtureDef argname='pytestbdd_stepdef_then_a execução do Vitrine fecha com status "{expected_status}" e {expected_created:d} imóveis criados' scope='function' baseid='src/tests/test_vitrine_importer.py'>]
+[DEBUG] pytest_bdd.scenario: Adding providers for fixture 'pytestbdd_stepimpl_then_a base de dados persiste 3 anúncios da fonte VITRINE com o imóvel "VT-4471" custando "845000.00"': [<FixtureDef argname='pytestbdd_stepdef_then_a base de dados persiste {expected_count:d} anúncios da fonte VITRINE com o imóvel "{external_id}" custando "{expected_price}"' scope='function' baseid='src/tests/test_vitrine_importer.py'>]

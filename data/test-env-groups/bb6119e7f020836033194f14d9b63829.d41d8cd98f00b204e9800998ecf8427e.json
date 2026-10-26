@@ -1,0 +1,1 @@
+{"id":"bb6119e7f020836033194f14d9b63829.d41d8cd98f00b204e9800998ecf8427e","fullName":"specs/properties_api.feature:GET /api/properties/ inclui fotos ordenadas sem introduzir queries N+1 por imóvel","name":"GET /api/properties/ inclui fotos ordenadas sem introduzir queries N+1 por imóvel","status":"failed","testResultsByEnv":{"default":"4ac930c8ec8beb4f6e8fa02b8398ff4e"}}

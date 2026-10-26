@@ -1,0 +1,27 @@
+{
+  "test": "src/tests/test_properties_api.py::test_list_returns_active_properties",
+  "duration_ms": 20.23,
+  "sql_queries_count": 4,
+  "queries": [
+    {
+      "index": 1,
+      "time_s": "0.001",
+      "sql": "INSERT INTO \"properties_property\" (\"source\", \"external_id\", \"title\", \"description\", \"transaction\", \"price\", \"bedrooms\", \"bathrooms\", \"parking_spaces\", \"area_m2\", \"address\", \"neighborhood\", \"city\", \"state\", \"is_active\", \"created_at\", \"updated_at\") VALUES ('NEXO', 'NX-1', 'Apartamento 2 quartos', '', 'SALE', 500000.00, 2, 0, 0, NULL, 'Rua A, 100', '', 'Belo Horizonte', 'MG', true, '2026-10-26 15:02:12.236369+00:00'::timestamptz, '2026-10-26 15:02:12.236375+00:00'::timestamptz) RETURNING \"properties_property\".\"id\""
+    },
+    {
+      "index": 2,
+      "time_s": "0.001",
+      "sql": "SELECT COUNT(*) AS \"__count\" FROM \"properties_property\" WHERE \"properties_property\".\"is_active\""
+    },
+    {
+      "index": 3,
+      "time_s": "0.001",
+      "sql": "SELECT \"properties_property\".\"id\", \"properties_property\".\"source\", \"properties_property\".\"external_id\", \"properties_property\".\"title\", \"properties_property\".\"description\", \"properties_property\".\"transaction\", \"properties_property\".\"price\", \"properties_property\".\"bedrooms\", \"properties_property\".\"bathrooms\", \"properties_property\".\"parking_spaces\", \"properties_property\".\"area_m2\", \"properties_property\".\"address\", \"properties_property\".\"neighborhood\", \"properties_property\".\"city\", \"properties_property\".\"state\", \"properties_property\".\"is_active\", \"properties_property\".\"created_at\", \"properties_property\".\"updated_at\" FROM \"properties_property\" WHERE \"properties_property\".\"is_active\" ORDER BY \"properties_property\".\"updated_at\" DESC LIMIT 1"
+    },
+    {
+      "index": 4,
+      "time_s": "0.001",
+      "sql": "SELECT \"properties_propertyphoto\".\"id\", \"properties_propertyphoto\".\"property_id\", \"properties_propertyphoto\".\"url\", \"properties_propertyphoto\".\"position\" FROM \"properties_propertyphoto\" WHERE \"properties_propertyphoto\".\"property_id\" = 362 ORDER BY \"properties_propertyphoto\".\"position\" ASC"
+    }
+  ]
+}

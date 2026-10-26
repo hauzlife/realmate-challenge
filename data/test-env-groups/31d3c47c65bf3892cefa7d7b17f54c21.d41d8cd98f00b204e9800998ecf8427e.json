@@ -1,0 +1,1 @@
+{"id":"31d3c47c65bf3892cefa7d7b17f54c21.d41d8cd98f00b204e9800998ecf8427e","fullName":"specs/vitrine_importer.feature:Ausência do arquivo JSON registra ImportRun com status FAILED e mensagem de erro","name":"Ausência do arquivo JSON registra ImportRun com status FAILED e mensagem de erro","status":"passed","testResultsByEnv":{"default":"5a2f8529228a4606a80e9c99db48ebcd"}}

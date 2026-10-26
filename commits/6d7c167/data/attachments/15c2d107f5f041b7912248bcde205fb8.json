@@ -1,0 +1,6 @@
+{
+  "test": "src/tests/test_vitrine_importer.py::test_parse_price_normalizes_vitrine_format[2890,00-2890.00]",
+  "duration_ms": 23.7,
+  "sql_queries_count": 0,
+  "queries": []
+}

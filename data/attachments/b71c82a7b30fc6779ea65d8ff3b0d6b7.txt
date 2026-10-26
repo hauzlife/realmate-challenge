@@ -1,0 +1,16 @@
+[DEBUG] pytest_bdd.scenario: Adding providers for fixture 'pytestbdd_stepimpl_given_que o caminho do feed JSON aponta para a fixture do Vitrine Imóveis': [<FixtureDef argname='pytestbdd_stepdef_given_que o caminho do feed JSON aponta para a fixture do Vitrine Imóveis' scope='function' baseid='src/tests'>]
+[DEBUG] pytest_bdd.scenario: Adding providers for fixture 'pytestbdd_stepimpl_given_que o imóvel "VT-4471" do Vitrine já possui 3 fotos importadas': [<FixtureDef argname='pytestbdd_stepdef_given_que o imóvel "{external_id}" do Vitrine já possui {photo_count:d} fotos importadas' scope='function' baseid='src/tests/test_vitrine_importer.py'>]
+[INFO] apps.properties.services.importers.vitrine: Starting Vitrine import (run 151) from /Users/anonymous/Projects/customers/realmate/realmate-challenge/src/tests/fixtures/vitrine_catalogo.json
+[INFO] apps.properties.services.importers.vitrine: Listing VT-4471 created
+[INFO] apps.properties.services.importers.vitrine: Listing VT-4519 created
+[INFO] apps.properties.services.importers.vitrine: Listing VT-4623 created
+[WARNING] apps.properties.services.importers.vitrine: Listing VT-4802 skipped: required fields are missing
+[INFO] apps.properties.services.importers.vitrine: Vitrine import finished: 3 created, 0 updated, 1 skipped
+[DEBUG] pytest_bdd.scenario: Adding providers for fixture 'pytestbdd_stepimpl_when_o VitrineImporter executa a importação do catálogo JSON': [<FixtureDef argname='pytestbdd_stepdef_when_o VitrineImporter executa a importação do catálogo JSON' scope='function' baseid='src/tests/test_vitrine_importer.py'>]
+[INFO] apps.properties.services.importers.vitrine: Starting Vitrine import (run 152) from /Users/anonymous/Projects/customers/realmate/realmate-challenge/src/tests/fixtures/vitrine_catalogo.json
+[INFO] apps.properties.services.importers.vitrine: Listing VT-4471 updated
+[INFO] apps.properties.services.importers.vitrine: Listing VT-4519 updated
+[INFO] apps.properties.services.importers.vitrine: Listing VT-4623 updated
+[WARNING] apps.properties.services.importers.vitrine: Listing VT-4802 skipped: required fields are missing
+[INFO] apps.properties.services.importers.vitrine: Vitrine import finished: 0 created, 3 updated, 1 skipped
+[DEBUG] pytest_bdd.scenario: Adding providers for fixture 'pytestbdd_stepimpl_then_a contagem de fotos do imóvel "VT-4471" continua sendo exatamente 3': [<FixtureDef argname='pytestbdd_stepdef_then_a contagem de fotos do imóvel "{external_id}" continua sendo exatamente {expected_count:d}' scope='function' baseid='src/tests/test_vitrine_importer.py'>]

@@ -1,0 +1,6 @@
+{
+  "test": "src/tests/test_nexo_importer.py::test_build_address_joins_available_parts",
+  "duration_ms": 1.66,
+  "sql_queries_count": 0,
+  "queries": []
+}
