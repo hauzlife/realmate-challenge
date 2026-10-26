@@ -28,6 +28,14 @@ Funcionalidade: Importador Portal Nexo
       Então o imóvel "NX-10488" fica persistido com is_active falso
       E o imóvel disponível "NX-10233" permanece com is_active verdadeiro
 
+    @availability @inactive
+    Cenário: Anúncio removido do XML em carga subsequente é marcado como inativo
+      Dado que o caminho do feed XML aponta para a fixture do Portal Nexo
+      E que o anúncio "NX-10512" estava ativo na base após uma carga anterior
+      Quando o NexoImporter executa a importação do catálogo XML
+      Então o imóvel "NX-10512" fica persistido com is_active falso
+      E o imóvel disponível "NX-10233" permanece com is_active verdadeiro
+
   Regra: Idempotência na reimportação de imóveis e fotos
 
     @upsert @idempotency

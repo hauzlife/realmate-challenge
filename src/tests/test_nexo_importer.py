@@ -100,6 +100,23 @@ def test_run_marks_unavailable_listing_as_inactive() -> None:
 
 @allure.epic("Catálogo de Imóveis")
 @allure.feature("Importador Portal Nexo")
+@allure.story("Controle de Disponibilidade de Anúncios")
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.tag("importer", "availability", "inactive", "bdd")
+@allure.title(
+    "Anúncio removido do XML em carga subsequente é marcado como inativo (is_active=False)"
+)
+@pytest.mark.django_db
+@scenario(
+    FEATURE_FILE,
+    "Anúncio removido do XML em carga subsequente é marcado como inativo",
+)
+def test_run_deactivates_missing_listing_from_previous_import() -> None:
+    """Scenario: Anúncio removido do XML em carga subsequente é marcado como inativo."""
+
+
+@allure.epic("Catálogo de Imóveis")
+@allure.feature("Importador Portal Nexo")
 @allure.story("Sincronização de Fotos do Imóvel")
 @allure.severity(allure.severity_level.NORMAL)
 @allure.tag("importer", "photos", "ordering", "bdd")
@@ -251,6 +268,23 @@ def given_catalog_imported_and_price_changed(
 ) -> None:
     NexoImporter().run()
     Property.objects.filter(external_id=external_id).update(price=Decimal(temp_price))
+
+
+@given(
+    parsers.parse('que o anúncio "{external_id}" estava ativo na base após uma carga anterior')
+)
+@allure.title("🎬 DADO QUE o anúncio {external_id} estava ativo na base após uma carga anterior")
+def given_active_property_from_previous_import(external_id: str) -> None:
+    Property.objects.create(
+        source=Property.Source.NEXO,
+        external_id=external_id,
+        title="Apartamento 2 quartos no Sion",
+        transaction=Property.Transaction.SALE,
+        price=Decimal("640000.00"),
+        city="Belo Horizonte",
+        state="MG",
+        is_active=True,
+    )
 
 
 @given(
