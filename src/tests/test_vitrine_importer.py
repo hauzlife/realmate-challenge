@@ -3,6 +3,7 @@
 import json
 from decimal import Decimal
 from pathlib import Path
+from typing import Any
 
 import allure
 import pytest
@@ -217,6 +218,23 @@ def test_parse_price_normalizes_vitrine_format() -> None:
 )
 def test_build_address_joins_available_parts() -> None:
     """Scenario: Formatação de endereço do Vitrine concatena partes disponíveis."""
+
+
+@allure.epic("Catálogo de Imóveis")
+@allure.feature("Importador Vitrine Imóveis")
+@allure.story("Validação e Descarte de Anúncios Inválidos")
+@allure.severity(allure.severity_level.NORMAL)
+@allure.tag("validation", "vitrine", "negative-test", "bdd")
+@allure.title(
+    "Importador do Vitrine descarta anúncios com preço ilegível ou tipo de negócio desconhecido"
+)
+@pytest.mark.django_db
+@scenario(
+    FEATURE_FILE,
+    "Importador do Vitrine descarta anúncios com preço ilegível ou tipo de negócio desconhecido",
+)
+def test_vitrine_skips_unreadable_price_and_unknown_transaction() -> None:
+    """Scenario: Importador do Vitrine descarta anúncios com preço ilegível ou negócio inválido."""
 
 
 # ============================================================================
@@ -527,3 +545,58 @@ def then_vitrine_formatted_address_matches(
     vitrine_formatted_address: str, expected_address: str
 ) -> None:
     assert vitrine_formatted_address == expected_address
+
+
+@given(
+    "que existe um ImportRun do Vitrine em andamento com anúncios "
+    "de preço ilegível e negócio desconhecido",
+    target_fixture="vitrine_invalid_ctx",
+)
+@allure.title(
+    "🎬 DADO QUE existe um ImportRun do Vitrine em andamento com anúncios "
+    "de preço ilegível e negócio desconhecido"
+)
+def given_vitrine_invalid_listings() -> dict[str, Any]:
+    run = ImportRun.objects.create(source=Property.Source.VITRINE)
+    unreadable_price = {
+        "referencia": "VT-BADPRICE",
+        "nome": "Imóvel Sob Consulta",
+        "negocio": "venda",
+        "preco": "sob consulta",
+        "localizacao": {"rua": "Rua A", "municipio": "BH", "estado": "MG"},
+    }
+    unknown_tx = {
+        "referencia": "VT-UNK",
+        "nome": "Imóvel Permuta",
+        "negocio": "permuta",
+        "preco": "500000,00",
+        "localizacao": {"rua": "Rua B", "municipio": "BH", "estado": "MG"},
+    }
+    return {"run": run, "listings": [unreadable_price, unknown_tx]}
+
+
+@when(
+    "VitrineImporter._import_listing processa os anúncios inválidos do Vitrine",
+    target_fixture="vitrine_invalid_run",
+)
+@allure.title("⚡ QUANDO VitrineImporter._import_listing processa os anúncios inválidos do Vitrine")
+def when_vitrine_processes_invalid_listings(vitrine_invalid_ctx: dict[str, Any]) -> ImportRun:
+    importer = VitrineImporter()
+    run: ImportRun = vitrine_invalid_ctx["run"]
+    for item in vitrine_invalid_ctx["listings"]:
+        importer._import_listing(item, run)
+    return run
+
+
+@then(
+    parsers.parse(
+        "o ImportRun do Vitrine contabiliza {expected_skipped:d} descartes em skipped_count"
+    )
+)
+@allure.title(
+    "🎯 ENTÃO o ImportRun do Vitrine contabiliza {expected_skipped} descartes em skipped_count"
+)
+def then_vitrine_invalid_run_skipped_count(
+    vitrine_invalid_run: ImportRun, expected_skipped: int
+) -> None:
+    assert vitrine_invalid_run.skipped_count == expected_skipped

@@ -1,15 +1,14 @@
 """Importer for the catalog published by the Nexo Portal."""
 
 import logging
-from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any
 from xml.etree import ElementTree
 
 from django.conf import settings
-from django.utils import timezone
 
-from apps.properties.models import ImportRun, Property, PropertyPhoto
+from apps.properties.models import ImportRun, Property
+from apps.properties.services.importers.base import BasePortalImporter
 
 logger = logging.getLogger(__name__)
 
@@ -21,7 +20,7 @@ TRANSACTION_BY_PORTAL_VALUE = {
 REQUIRED_FIELDS = ("codigo", "titulo", "tipo_negocio", "valor", "endereco")
 
 
-class NexoImporter:
+class NexoImporter(BasePortalImporter):
     """Imports the property catalog published by the Nexo Portal.
 
     The portal publishes the partner's whole catalog as an XML file, which it
@@ -31,6 +30,11 @@ class NexoImporter:
     """
 
     source = Property.Source.NEXO
+    portal_name = "Nexo Portal"
+    external_id_field = "codigo"
+    required_fields = REQUIRED_FIELDS
+    transaction_by_portal_value = TRANSACTION_BY_PORTAL_VALUE
+    read_exceptions = (OSError, ElementTree.ParseError)
 
     def __init__(self, feed_path: Path | str | None = None) -> None:
         """Build the importer.
@@ -39,59 +43,7 @@ class NexoImporter:
             feed_path: Location of the XML catalog. Defaults to the path
                 configured in `settings.NEXO_FEED_PATH`.
         """
-        self.feed_path = Path(feed_path or settings.NEXO_FEED_PATH)
-
-    def run(self) -> ImportRun:
-        """Import the whole catalog and record the outcome.
-
-        Returns:
-            The `ImportRun` describing this execution, already closed with its
-            final status and counters. A feed that cannot be read produces a
-            failed run rather than an exception.
-        """
-        import_run = ImportRun.objects.create(source=self.source)
-        logger.info("Starting Nexo Portal import (run %s) from %s", import_run.id, self.feed_path)
-
-        try:
-            listings = self._read_listings()
-        except (OSError, ElementTree.ParseError) as exc:
-            logger.exception("Could not read the Nexo Portal catalog at %s", self.feed_path)
-            import_run.status = ImportRun.Status.FAILED
-            import_run.error_message = str(exc)
-            import_run.finished_at = timezone.now()
-            import_run.save(update_fields=["status", "error_message", "finished_at"])
-            return import_run
-
-        for listing in listings:
-            self._import_listing(listing, import_run)
-
-        seen_external_ids = {
-            str(listing.get("codigo", "")).strip()
-            for listing in listings
-            if str(listing.get("codigo", "")).strip()
-        }
-        Property.objects.filter(source=self.source, is_active=True).exclude(
-            external_id__in=seen_external_ids
-        ).update(is_active=False, updated_at=timezone.now())
-
-        import_run.status = ImportRun.Status.SUCCESS
-        import_run.finished_at = timezone.now()
-        import_run.save(
-            update_fields=[
-                "status",
-                "finished_at",
-                "created_count",
-                "updated_count",
-                "skipped_count",
-            ]
-        )
-        logger.info(
-            "Nexo Portal import finished: %s created, %s updated, %s skipped",
-            import_run.created_count,
-            import_run.updated_count,
-            import_run.skipped_count,
-        )
-        return import_run
+        super().__init__(Path(feed_path or settings.NEXO_FEED_PATH))
 
     def _read_listings(self) -> list[dict[str, Any]]:
         """Read the feed and return one dictionary per listing.
@@ -177,77 +129,12 @@ class NexoImporter:
             "is_active": self._is_available(listing),
         }
 
-        photo_urls = listing.get("fotos", [])
-        existing = Property.objects.filter(source=self.source, external_id=external_id).first()
-
-        if existing is None:
-            created = Property.objects.create(source=self.source, external_id=external_id, **fields)
-            self._save_photos(created, photo_urls)
-            import_run.created_count += 1
-            logger.info("Listing %s created", external_id)
-            return
-
-        for name, value in fields.items():
-            setattr(existing, name, value)
-        existing.save(update_fields=[*fields.keys(), "updated_at"])
-        self._save_photos(existing, photo_urls)
-        import_run.updated_count += 1
-        logger.info("Listing %s updated", external_id)
-
-    def _save_photos(self, property_: Property, urls: list[str]) -> None:
-        """Replace the photos of a listing with the ones the portal publishes now.
-
-        Args:
-            property_: The listing the photos belong to.
-            urls: The photo URLs, in the order the portal displays them.
-        """
-        property_.photos.all().delete()
-        PropertyPhoto.objects.bulk_create(
-            PropertyPhoto(property=property_, url=url, position=position)
-            for position, url in enumerate(urls)
-        )
-
-    def _is_complete(self, listing: dict[str, Any]) -> bool:
-        """Tell whether the listing carries every field we need to store it."""
-        return all(listing.get(field) for field in REQUIRED_FIELDS)
+        photo_urls = listing.get("fotos") or []
+        self._save_property(external_id, fields, photo_urls, import_run)
 
     def _is_available(self, listing: dict[str, Any]) -> bool:
         """Tell whether the listing is still being offered by the portal."""
         return str(listing.get("situacao", "")).lower() == "disponivel"
-
-    def _parse_price(self, raw: Any) -> Decimal | None:
-        """Convert the portal price, written in pt-BR notation, into a Decimal.
-
-        Nexo sends the price as text ("1.250.000,00"): dots separate thousands
-        and the comma separates the cents.
-
-        Args:
-            raw: The price exactly as published by the portal.
-
-        Returns:
-            The parsed amount, or None when the text is not a number.
-        """
-        normalized = str(raw).strip().replace(".", "").replace(",", ".")
-        try:
-            return Decimal(normalized)
-        except InvalidOperation:
-            return None
-
-    def _parse_int(self, raw: Any) -> int | None:
-        """Convert an optional numeric field into an int.
-
-        Args:
-            raw: The value as published by the portal, possibly empty.
-
-        Returns:
-            The parsed number, or None when the field is empty or not numeric.
-        """
-        if raw in (None, ""):
-            return None
-        try:
-            return int(str(raw).strip())
-        except ValueError:
-            return None
 
     def _build_address(self, address: dict[str, Any]) -> str:
         """Join the address parts the portal sends separately into one line.
@@ -259,9 +146,8 @@ class NexoImporter:
             Street, number and complement joined by commas, skipping whichever
             of them the portal left empty.
         """
-        street = str(address.get("logradouro", "")).strip()
-        number = str(address.get("numero", "")).strip()
-        complement = str(address.get("complemento", "")).strip()
-
-        parts = [part for part in (street, number, complement) if part]
-        return ", ".join(parts)
+        return self._join_address_parts(
+            address.get("logradouro", ""),
+            address.get("numero", ""),
+            address.get("complemento", ""),
+        )

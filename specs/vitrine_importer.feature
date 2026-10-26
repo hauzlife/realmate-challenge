@@ -93,3 +93,9 @@ Funcionalidade: Importador Vitrine Imóveis
       Dado que a localização do Vitrine possui rua "Rua Fernandes Tourinho", número "88" e complemento vazio
       Quando VitrineImporter._build_address monta a linha de endereço
       Então o endereço formatado pelo VitrineImporter é "Rua Fernandes Tourinho, 88"
+
+    @validation @negative_test
+    Cenário: Importador do Vitrine descarta anúncios com preço ilegível ou tipo de negócio desconhecido
+      Dado que existe um ImportRun do Vitrine em andamento com anúncios de preço ilegível e negócio desconhecido
+      Quando VitrineImporter._import_listing processa os anúncios inválidos do Vitrine
+      Então o ImportRun do Vitrine contabiliza 2 descartes em skipped_count
