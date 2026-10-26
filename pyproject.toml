@@ -16,9 +16,12 @@ dependencies = [
 dev = [
     "pytest>=8.3",
     "pytest-django>=4.9",
+    "pytest-bdd>=8.1",
     "ruff>=0.7",
     "mypy>=1.13",
     "django-stubs>=5.1",
+    "allure-pytest-bdd>=2.16.2",
+    "pytest-cov>=7.1.0",
 ]
 
 [tool.ruff]
@@ -33,7 +36,58 @@ select = ["E", "F", "I", "UP", "B", "C4", "DJ", "SIM"]
 DJANGO_SETTINGS_MODULE = "config.settings"
 pythonpath = ["src"]
 python_files = ["test_*.py"]
-addopts = "--reuse-db"
+bdd_features_base_dir = "specs"
+addopts = "--reuse-db --alluredir=allure-results --clean-alluredir --cov=apps --cov=config --cov-branch --cov-report=term-missing --cov-report=json:allure-results/a-coverage-telemetry-attachment.json --cov-report=xml:allure-results/a-coverage-cobertura-attachment.xml"
+markers = [
+    "bdd: cenarios BDD Gherkin",
+    "importer: testes do importador de imoveis",
+    "nexo: integracao com Portal Nexo",
+    "xml: processamento de feed XML",
+    "validation: validacao de dados de entrada",
+    "price: regras de preco",
+    "upsert: atualizacao idempotente de registros",
+    "idempotency: garantia de idempotencia",
+    "availability: controle de disponibilidade de anuncios",
+    "inactive: anuncios inativos ou vendidos",
+    "photos: sincronizacao e ordenacao de fotos",
+    "ordering: preservacao de ordem",
+    "resilience: resiliencia e tratamento de falhas",
+    "error_handling: captura de erros de I/O",
+    "celery: execucao de tasks Celery",
+    "task: tasks assincronas",
+    "parser: normalizacao e parsing de campos",
+    "pt_br: formato monetario brasileiro",
+    "negative_test: casos de teste negativos",
+    "address: formatacao de endereco",
+    "models: representacao textual e contratos de modelos",
+    "processing: processamento noturno do catalogo",
+    "nightly_job: rotinas em lote noturnas",
+    "api: endpoints da API publica",
+    "rest: interface REST",
+    "catalog: consulta de catalogo",
+    "security: regras de visibilidade e seguranca",
+    "filters: filtros de busca da API",
+    "min_price: filtro de preco minimo",
+    "combined_filters: multiplos filtros combinados",
+]
+
+[tool.coverage.run]
+source = ["apps", "config"]
+branch = true
+omit = [
+    "*/migrations/*",
+    "*/wsgi.py",
+    "*/celery.py",
+    "*/admin.py",
+]
+
+[tool.coverage.report]
+show_missing = true
+precision = 2
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING:",
+]
 
 [tool.mypy]
 python_version = "3.11"

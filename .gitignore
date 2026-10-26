@@ -15,7 +15,17 @@ celerybeat-schedule*
 .ruff_cache/
 .coverage
 htmlcov/
-
 .idea/
 .vscode/
 .DS_Store
+
+# Ignore files by each developer's preferences
+.gitnexus
+.claude
+graphify-out
+AGENTS.md
+CLAUDE.md
+allure-awesome
+allure-results/
+allure-report/
+artifacts/

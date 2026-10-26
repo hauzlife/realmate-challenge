@@ -65,6 +65,15 @@ class NexoImporter:
         for listing in listings:
             self._import_listing(listing, import_run)
 
+        seen_external_ids = {
+            str(listing.get("codigo", "")).strip()
+            for listing in listings
+            if str(listing.get("codigo", "")).strip()
+        }
+        Property.objects.filter(source=self.source, is_active=True).exclude(
+            external_id__in=seen_external_ids
+        ).update(is_active=False, updated_at=timezone.now())
+
         import_run.status = ImportRun.Status.SUCCESS
         import_run.finished_at = timezone.now()
         import_run.save(
