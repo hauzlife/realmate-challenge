@@ -1,0 +1,66 @@
+{
+  "name": "Portal de Imóveis — Allure Awesome BDD Report",
+  "output": "./allure-awesome",
+  "plugins": {
+    "awesome": {
+      "options": {
+        "reportName": "Portal de Imóveis — Allure Awesome BDD & Quality Gates",
+        "reportLanguage": "pt",
+        "groupBy": ["epic", "feature", "story"],
+        "sections": ["charts", "timeline", "metrics"]
+      }
+    },
+    "agent": {
+      "enabled": false
+    }
+  },
+  "qualityGate": {
+    "rules": [
+      {
+        "id": "suite-integrity",
+        "maxFailures": 0,
+        "minTestsCount": 20,
+        "successRate": 1,
+        "maxDuration": 5000,
+        "metricMin": {
+          "key": "coverage_line_rate",
+          "value": 90,
+          "title": "Cobertura de Linhas (Line Coverage >= 90%)",
+          "unit": "%"
+        }
+      },
+      {
+        "id": "branch-coverage-gate",
+        "metricMin": {
+          "key": "coverage_branch_rate",
+          "value": 85,
+          "title": "Cobertura de Branches (Branch Coverage >= 85%)",
+          "unit": "%"
+        }
+      },
+      {
+        "id": "sql-efficiency-gate",
+        "metricMax": {
+          "key": "avg_sql_queries_per_test",
+          "value": 15,
+          "title": "Eficiência de Queries SQL (Média <= 15/teste)",
+          "unit": "queries"
+        }
+      }
+    ]
+  },
+  "categories": [
+    {
+      "name": "Falhas de Contrato de Domínio (Asserções)",
+      "matchers": {
+        "statuses": ["failed"]
+      }
+    },
+    {
+      "name": "Erros de Infraestrutura / I/O",
+      "matchers": {
+        "statuses": ["broken"]
+      }
+    }
+  ]
+}
