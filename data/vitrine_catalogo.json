@@ -1,0 +1,128 @@
+{
+  "portal": "Vitrine Imoveis",
+  "atualizado_em": "2026-08-30T04:15:00-03:00",
+  "imoveis": [
+    {
+      "referencia": "VT-4471",
+      "nome": "Apartamento 3 quartos no Buritis",
+      "detalhes": "Apartamento com varanda gourmet, andar alto e vista para a serra.",
+      "negocio": "venda",
+      "preco": "845000,00",
+      "quartos": 3,
+      "banheiros": 2,
+      "garagem": 2,
+      "metragem": 96,
+      "status": "ativo",
+      "fotos": [
+        "https://fotos.vitrineimoveis.com.br/VT-4471/01.jpg",
+        "https://fotos.vitrineimoveis.com.br/VT-4471/02.jpg",
+        "https://fotos.vitrineimoveis.com.br/VT-4471/03.jpg"
+      ],
+      "localizacao": {
+        "rua": "Rua Doutor Alfredo Camarate",
+        "num": "155",
+        "compl": "Apto 902",
+        "bairro": "Buritis",
+        "municipio": "Belo Horizonte",
+        "estado": "MG"
+      }
+    },
+    {
+      "referencia": "VT-4519",
+      "nome": "Casa 3 quartos no Castelo",
+      "detalhes": "Casa geminada, dois pavimentos, quintal nos fundos.",
+      "negocio": "venda",
+      "preco": "1180000,00",
+      "quartos": 3,
+      "banheiros": 3,
+      "garagem": 2,
+      "metragem": 180,
+      "status": "vendido",
+      "fotos": [
+        "https://fotos.vitrineimoveis.com.br/VT-4519/01.jpg",
+        "https://fotos.vitrineimoveis.com.br/VT-4519/02.jpg"
+      ],
+      "localizacao": {
+        "rua": "Rua Alcides Lins",
+        "num": "402",
+        "compl": "",
+        "bairro": "Castelo",
+        "municipio": "Belo Horizonte",
+        "estado": "MG"
+      }
+    },
+    {
+      "referencia": "VT-4623",
+      "nome": "Apartamento 2 quartos no Ouro Preto",
+      "detalhes": "Proximo ao Minas Shopping, com armarios planejados e area de servico.",
+      "negocio": "locacao",
+      "preco": "2890,00",
+      "quartos": 2,
+      "banheiros": 1,
+      "garagem": 1,
+      "metragem": 68,
+      "status": "ativo",
+      "fotos": [
+        "https://fotos.vitrineimoveis.com.br/VT-4623/01.jpg",
+        "https://fotos.vitrineimoveis.com.br/VT-4623/02.jpg"
+      ],
+      "localizacao": {
+        "rua": "Rua Fernandes Tourinho",
+        "num": "88",
+        "compl": "Apto 301",
+        "bairro": "Ouro Preto",
+        "municipio": "Belo Horizonte",
+        "estado": "MG"
+      }
+    },
+    {
+      "referencia": "VT-4744",
+      "nome": "Cobertura 3 quartos no Anchieta",
+      "detalhes": "Cobertura com terraco, churrasqueira e vista panoramica.",
+      "negocio": "venda",
+      "preco": "2340000,00",
+      "quartos": 3,
+      "banheiros": 4,
+      "garagem": 3,
+      "metragem": 265,
+      "status": "ativo",
+      "fotos": [
+        "https://fotos.vitrineimoveis.com.br/VT-4744/01.jpg",
+        "https://fotos.vitrineimoveis.com.br/VT-4744/02.jpg",
+        "https://fotos.vitrineimoveis.com.br/VT-4744/03.jpg",
+        "https://fotos.vitrineimoveis.com.br/VT-4744/04.jpg"
+      ],
+      "localizacao": {
+        "rua": "Rua Guajajaras",
+        "num": "1200",
+        "compl": "Cobertura 02",
+        "bairro": "Anchieta",
+        "municipio": "Belo Horizonte",
+        "estado": "MG"
+      }
+    },
+    {
+      "referencia": "VT-4802",
+      "nome": "Terreno no Vale do Sereno",
+      "detalhes": "Terreno em aclive suave, pronto para construir.",
+      "negocio": "venda",
+      "preco": "",
+      "quartos": 0,
+      "banheiros": 0,
+      "garagem": 0,
+      "metragem": 450,
+      "status": "ativo",
+      "fotos": [
+        "https://fotos.vitrineimoveis.com.br/VT-4802/01.jpg"
+      ],
+      "localizacao": {
+        "rua": "Alameda dos Jacarandas",
+        "num": "77",
+        "compl": "",
+        "bairro": "Vale do Sereno",
+        "municipio": "Nova Lima",
+        "estado": "MG"
+      }
+    }
+  ]
+}

@@ -14,6 +14,7 @@ class PropertySerializer(serializers.ModelSerializer[Property]):
 
     source = serializers.CharField(source="get_source_display", read_only=True)
     transaction = serializers.CharField(source="get_transaction_display", read_only=True)
+    photos = serializers.SlugRelatedField(many=True, read_only=True, slug_field="url")
 
     class Meta:
         model = Property
@@ -33,5 +34,6 @@ class PropertySerializer(serializers.ModelSerializer[Property]):
             "neighborhood",
             "city",
             "state",
+            "photos",
             "updated_at",
         ]

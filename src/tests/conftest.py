@@ -110,6 +110,30 @@ def given_nexo_feed_fixture(nexo_feed: Path) -> Path:
     return nexo_feed
 
 
+@pytest.fixture
+def vitrine_feed(settings: Settings) -> Path:
+    """Point the importer at a small excerpt of the catalog the portal publishes."""
+    with allure.step("🎬 DADO QUE o caminho do feed JSON aponta para a fixture do Vitrine Imóveis"):
+        feed_path = FIXTURES_DIR / "vitrine_catalogo.json"
+        settings.VITRINE_FEED_PATH = feed_path
+        allure.attach(
+            feed_path.read_text(encoding="utf-8"),
+            name="vitrine_catalogo_fixture.json",
+            attachment_type=allure.attachment_type.JSON,
+        )
+        return feed_path
+
+
+@given(
+    "que o caminho do feed JSON aponta para a fixture do Vitrine Imóveis",
+    target_fixture="vitrine_feed",
+)
+@allure.title("🎬 DADO QUE o caminho do feed JSON aponta para a fixture do Vitrine Imóveis")
+def given_vitrine_feed_fixture(vitrine_feed: Path) -> Path:
+    """Configure and attach the Vitrine Imoveis JSON fixture for BDD scenarios."""
+    return vitrine_feed
+
+
 @pytest.fixture(autouse=True)
 def collect_test_evidence(request: pytest.FixtureRequest) -> Generator[None, None, None]:
     """Automatically capture runtime logs, SQL queries, and DB state snapshots for every test."""

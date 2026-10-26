@@ -12,6 +12,7 @@ class Property(models.Model):
 
     class Source(models.TextChoices):
         NEXO = "NEXO", "Nexo Portal"
+        VITRINE = "VITRINE", "Vitrine Imoveis"
 
     class Transaction(models.TextChoices):
         SALE = "SALE", "Sale"

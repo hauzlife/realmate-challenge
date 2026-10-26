@@ -40,3 +40,11 @@ Funcionalidade: Listagem e Filtros de Busca do Catálogo (/api/properties/)
         | min_bedrooms | 2              |
       Então a API responde HTTP 200 com count igual a 1
       E apenas o imóvel "NX-1" é retornado na listagem
+
+    @photos @n_plus_one
+    Cenário: GET /api/properties/ inclui fotos ordenadas sem introduzir queries N+1 por imóvel
+      Dado que o imóvel "NX-1" possui as fotos "https://fotos.vitrineimoveis.com.br/VT-1/01.jpg" e "https://fotos.vitrineimoveis.com.br/VT-1/02.jpg"
+      E que existe também um imóvel ativo "NX-2" para aluguel em "Sao Paulo" por "2500.00" com 1 quarto
+      Quando o cliente consulta GET "/api/properties/" monitorando o número de queries SQL
+      Então a API devolve as URLs das fotos do imóvel "NX-1" na ordem cadastrada
+      E a listagem executa no máximo 3 queries SQL sem N+1 em PropertyPhoto
