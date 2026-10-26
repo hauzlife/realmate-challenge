@@ -1,0 +1,5 @@
+parametro,valor
+city,Belo Horizonte
+transaction,SALE
+max_price,550000
+min_bedrooms,2

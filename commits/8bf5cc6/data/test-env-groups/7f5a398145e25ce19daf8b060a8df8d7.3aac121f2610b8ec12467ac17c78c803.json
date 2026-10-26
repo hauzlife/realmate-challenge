@@ -1,0 +1,1 @@
+{"id":"7f5a398145e25ce19daf8b060a8df8d7.3aac121f2610b8ec12467ac17c78c803","fullName":"specs/nexo_importer.feature:Conversão de preço em formato pt-BR retorna Decimal normalizado","name":"Conversão de preço em formato pt-BR ('1.250.000,00') retorna Decimal('1250000.00')","status":"passed","testResultsByEnv":{"default":"5f9614d02d2fba8e23e3e6b22f800073"}}

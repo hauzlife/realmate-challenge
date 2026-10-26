@@ -1,0 +1,172 @@
+{
+  "test": "src/tests/test_nexo_importer.py::test_run_updates_property_already_imported",
+  "duration_ms": 20.24,
+  "sql_queries_count": 33,
+  "queries": [
+    {
+      "index": 1,
+      "time_s": "0.001",
+      "sql": "INSERT INTO \"properties_importrun\" (\"source\", \"status\", \"started_at\", \"finished_at\", \"created_count\", \"updated_count\", \"skipped_count\", \"error_message\") VALUES ('NEXO', 'RUNNING', '2026-10-26 14:31:39.230019+00:00'::timestamptz, NULL, 0, 0, 0, '') RETURNING \"properties_importrun\".\"id\""
+    },
+    {
+      "index": 2,
+      "time_s": "0.000",
+      "sql": "SELECT \"properties_property\".\"id\", \"properties_property\".\"source\", \"properties_property\".\"external_id\", \"properties_property\".\"title\", \"properties_property\".\"description\", \"properties_property\".\"transaction\", \"properties_property\".\"price\", \"properties_property\".\"bedrooms\", \"properties_property\".\"bathrooms\", \"properties_property\".\"parking_spaces\", \"properties_property\".\"area_m2\", \"properties_property\".\"address\", \"properties_property\".\"neighborhood\", \"properties_property\".\"city\", \"properties_property\".\"state\", \"properties_property\".\"is_active\", \"properties_property\".\"created_at\", \"properties_property\".\"updated_at\" FROM \"properties_property\" WHERE (\"properties_property\".\"external_id\" = 'NX-10233' AND \"properties_property\".\"source\" = 'NEXO') ORDER BY \"properties_property\".\"updated_at\" DESC LIMIT 1"
+    },
+    {
+      "index": 3,
+      "time_s": "0.000",
+      "sql": "INSERT INTO \"properties_property\" (\"source\", \"external_id\", \"title\", \"description\", \"transaction\", \"price\", \"bedrooms\", \"bathrooms\", \"parking_spaces\", \"area_m2\", \"address\", \"neighborhood\", \"city\", \"state\", \"is_active\", \"created_at\", \"updated_at\") VALUES ('NEXO', 'NX-10233', 'Apartamento 3 quartos no Funcionarios', 'Apartamento reformado, andar alto, com vista livre.', 'SALE', 1250000.00, 3, 2, 2, 118, 'Rua Antonio de Albuquerque, 740, Apto 1201', 'Funcionarios', 'Belo Horizonte', 'MG', true, '2026-10-26 14:31:39.231655+00:00'::timestamptz, '2026-10-26 14:31:39.231661+00:00'::timestamptz) RETURNING \"properties_property\".\"id\""
+    },
+    {
+      "index": 4,
+      "time_s": "0.000",
+      "sql": "DELETE FROM \"properties_propertyphoto\" WHERE \"properties_propertyphoto\".\"property_id\" = 241"
+    },
+    {
+      "index": 5,
+      "time_s": "0.000",
+      "sql": "INSERT INTO \"properties_propertyphoto\" (\"property_id\", \"url\", \"position\") VALUES (241, 'https://fotos.portalnexo.com.br/NX-10233/01.jpg', 0), (241, 'https://fotos.portalnexo.com.br/NX-10233/02.jpg', 1), (241, 'https://fotos.portalnexo.com.br/NX-10233/03.jpg', 2) RETURNING \"properties_propertyphoto\".\"id\""
+    },
+    {
+      "index": 6,
+      "time_s": "0.000",
+      "sql": "SELECT \"properties_property\".\"id\", \"properties_property\".\"source\", \"properties_property\".\"external_id\", \"properties_property\".\"title\", \"properties_property\".\"description\", \"properties_property\".\"transaction\", \"properties_property\".\"price\", \"properties_property\".\"bedrooms\", \"properties_property\".\"bathrooms\", \"properties_property\".\"parking_spaces\", \"properties_property\".\"area_m2\", \"properties_property\".\"address\", \"properties_property\".\"neighborhood\", \"properties_property\".\"city\", \"properties_property\".\"state\", \"properties_property\".\"is_active\", \"properties_property\".\"created_at\", \"properties_property\".\"updated_at\" FROM \"properties_property\" WHERE (\"properties_property\".\"external_id\" = 'NX-10488' AND \"properties_property\".\"source\" = 'NEXO') ORDER BY \"properties_property\".\"updated_at\" DESC LIMIT 1"
+    },
+    {
+      "index": 7,
+      "time_s": "0.000",
+      "sql": "INSERT INTO \"properties_property\" (\"source\", \"external_id\", \"title\", \"description\", \"transaction\", \"price\", \"bedrooms\", \"bathrooms\", \"parking_spaces\", \"area_m2\", \"address\", \"neighborhood\", \"city\", \"state\", \"is_active\", \"created_at\", \"updated_at\") VALUES ('NEXO', 'NX-10488', 'Casa 4 quartos no Bandeirantes', 'Casa em rua tranquila, quintal amplo.', 'SALE', 890000.00, 4, 3, 3, 245, 'Rua Deputado Bernardino Vaz, 310', 'Bandeirantes', 'Belo Horizonte', 'MG', false, '2026-10-26 14:31:39.233692+00:00'::timestamptz, '2026-10-26 14:31:39.233697+00:00'::timestamptz) RETURNING \"properties_property\".\"id\""
+    },
+    {
+      "index": 8,
+      "time_s": "0.000",
+      "sql": "DELETE FROM \"properties_propertyphoto\" WHERE \"properties_propertyphoto\".\"property_id\" = 242"
+    },
+    {
+      "index": 9,
+      "time_s": "0.000",
+      "sql": "INSERT INTO \"properties_propertyphoto\" (\"property_id\", \"url\", \"position\") VALUES (242, 'https://fotos.portalnexo.com.br/NX-10488/01.jpg', 0), (242, 'https://fotos.portalnexo.com.br/NX-10488/02.jpg', 1) RETURNING \"properties_propertyphoto\".\"id\""
+    },
+    {
+      "index": 10,
+      "time_s": "0.000",
+      "sql": "SELECT \"properties_property\".\"id\", \"properties_property\".\"source\", \"properties_property\".\"external_id\", \"properties_property\".\"title\", \"properties_property\".\"description\", \"properties_property\".\"transaction\", \"properties_property\".\"price\", \"properties_property\".\"bedrooms\", \"properties_property\".\"bathrooms\", \"properties_property\".\"parking_spaces\", \"properties_property\".\"area_m2\", \"properties_property\".\"address\", \"properties_property\".\"neighborhood\", \"properties_property\".\"city\", \"properties_property\".\"state\", \"properties_property\".\"is_active\", \"properties_property\".\"created_at\", \"properties_property\".\"updated_at\" FROM \"properties_property\" WHERE (\"properties_property\".\"external_id\" = 'NX-11002' AND \"properties_property\".\"source\" = 'NEXO') ORDER BY \"properties_property\".\"updated_at\" DESC LIMIT 1"
+    },
+    {
+      "index": 11,
+      "time_s": "0.000",
+      "sql": "INSERT INTO \"properties_property\" (\"source\", \"external_id\", \"title\", \"description\", \"transaction\", \"price\", \"bedrooms\", \"bathrooms\", \"parking_spaces\", \"area_m2\", \"address\", \"neighborhood\", \"city\", \"state\", \"is_active\", \"created_at\", \"updated_at\") VALUES ('NEXO', 'NX-11002', 'Studio mobiliado no Savassi', 'Studio compacto, mobiliado, pronto para morar.', 'RENT', 3400.00, 1, 1, 1, 38, 'Rua Pernambuco, 1255, Apto 402', 'Savassi', 'Belo Horizonte', 'MG', true, '2026-10-26 14:31:39.235664+00:00'::timestamptz, '2026-10-26 14:31:39.235670+00:00'::timestamptz) RETURNING \"properties_property\".\"id\""
+    },
+    {
+      "index": 12,
+      "time_s": "0.000",
+      "sql": "DELETE FROM \"properties_propertyphoto\" WHERE \"properties_propertyphoto\".\"property_id\" = 243"
+    },
+    {
+      "index": 13,
+      "time_s": "0.000",
+      "sql": "INSERT INTO \"properties_propertyphoto\" (\"property_id\", \"url\", \"position\") VALUES (243, 'https://fotos.portalnexo.com.br/NX-11002/01.jpg', 0), (243, 'https://fotos.portalnexo.com.br/NX-11002/02.jpg', 1) RETURNING \"properties_propertyphoto\".\"id\""
+    },
+    {
+      "index": 14,
+      "time_s": "0.000",
+      "sql": "UPDATE \"properties_property\" SET \"is_active\" = false, \"updated_at\" = '2026-10-26 14:31:39.237127+00:00'::timestamptz WHERE (\"properties_property\".\"is_active\" AND \"properties_property\".\"source\" = 'NEXO' AND NOT (\"properties_property\".\"external_id\" IN ('NX-10233', 'NX-11002', 'NX-10488', 'NX-11288')))"
+    },
+    {
+      "index": 15,
+      "time_s": "0.000",
+      "sql": "UPDATE \"properties_importrun\" SET \"status\" = 'SUCCESS', \"finished_at\" = '2026-10-26 14:31:39.237511+00:00'::timestamptz, \"created_count\" = 3, \"updated_count\" = 0, \"skipped_count\" = 1 WHERE \"properties_importrun\".\"id\" = 93"
+    },
+    {
+      "index": 16,
+      "time_s": "0.000",
+      "sql": "UPDATE \"properties_property\" SET \"price\" = 1.00 WHERE \"properties_property\".\"external_id\" = 'NX-10233'"
+    },
+    {
+      "index": 17,
+      "time_s": "0.000",
+      "sql": "INSERT INTO \"properties_importrun\" (\"source\", \"status\", \"started_at\", \"finished_at\", \"created_count\", \"updated_count\", \"skipped_count\", \"error_message\") VALUES ('NEXO', 'RUNNING', '2026-10-26 14:31:39.238718+00:00'::timestamptz, NULL, 0, 0, 0, '') RETURNING \"properties_importrun\".\"id\""
+    },
+    {
+      "index": 18,
+      "time_s": "0.000",
+      "sql": "SELECT \"properties_property\".\"id\", \"properties_property\".\"source\", \"properties_property\".\"external_id\", \"properties_property\".\"title\", \"properties_property\".\"description\", \"properties_property\".\"transaction\", \"properties_property\".\"price\", \"properties_property\".\"bedrooms\", \"properties_property\".\"bathrooms\", \"properties_property\".\"parking_spaces\", \"properties_property\".\"area_m2\", \"properties_property\".\"address\", \"properties_property\".\"neighborhood\", \"properties_property\".\"city\", \"properties_property\".\"state\", \"properties_property\".\"is_active\", \"properties_property\".\"created_at\", \"properties_property\".\"updated_at\" FROM \"properties_property\" WHERE (\"properties_property\".\"external_id\" = 'NX-10233' AND \"properties_property\".\"source\" = 'NEXO') ORDER BY \"properties_property\".\"updated_at\" DESC LIMIT 1"
+    },
+    {
+      "index": 19,
+      "time_s": "0.000",
+      "sql": "UPDATE \"properties_property\" SET \"title\" = 'Apartamento 3 quartos no Funcionarios', \"description\" = 'Apartamento reformado, andar alto, com vista livre.', \"transaction\" = 'SALE', \"price\" = 1250000.00, \"bedrooms\" = 3, \"bathrooms\" = 2, \"parking_spaces\" = 2, \"area_m2\" = 118, \"address\" = 'Rua Antonio de Albuquerque, 740, Apto 1201', \"neighborhood\" = 'Funcionarios', \"city\" = 'Belo Horizonte', \"state\" = 'MG', \"is_active\" = true, \"updated_at\" = '2026-10-26 14:31:39.239991+00:00'::timestamptz WHERE \"properties_property\".\"id\" = 241"
+    },
+    {
+      "index": 20,
+      "time_s": "0.000",
+      "sql": "DELETE FROM \"properties_propertyphoto\" WHERE \"properties_propertyphoto\".\"property_id\" = 241"
+    },
+    {
+      "index": 21,
+      "time_s": "0.000",
+      "sql": "INSERT INTO \"properties_propertyphoto\" (\"property_id\", \"url\", \"position\") VALUES (241, 'https://fotos.portalnexo.com.br/NX-10233/01.jpg', 0), (241, 'https://fotos.portalnexo.com.br/NX-10233/02.jpg', 1), (241, 'https://fotos.portalnexo.com.br/NX-10233/03.jpg', 2) RETURNING \"properties_propertyphoto\".\"id\""
+    },
+    {
+      "index": 22,
+      "time_s": "0.000",
+      "sql": "SELECT \"properties_property\".\"id\", \"properties_property\".\"source\", \"properties_property\".\"external_id\", \"properties_property\".\"title\", \"properties_property\".\"description\", \"properties_property\".\"transaction\", \"properties_property\".\"price\", \"properties_property\".\"bedrooms\", \"properties_property\".\"bathrooms\", \"properties_property\".\"parking_spaces\", \"properties_property\".\"area_m2\", \"properties_property\".\"address\", \"properties_property\".\"neighborhood\", \"properties_property\".\"city\", \"properties_property\".\"state\", \"properties_property\".\"is_active\", \"properties_property\".\"created_at\", \"properties_property\".\"updated_at\" FROM \"properties_property\" WHERE (\"properties_property\".\"external_id\" = 'NX-10488' AND \"properties_property\".\"source\" = 'NEXO') ORDER BY \"properties_property\".\"updated_at\" DESC LIMIT 1"
+    },
+    {
+      "index": 23,
+      "time_s": "0.000",
+      "sql": "UPDATE \"properties_property\" SET \"title\" = 'Casa 4 quartos no Bandeirantes', \"description\" = 'Casa em rua tranquila, quintal amplo.', \"transaction\" = 'SALE', \"price\" = 890000.00, \"bedrooms\" = 4, \"bathrooms\" = 3, \"parking_spaces\" = 3, \"area_m2\" = 245, \"address\" = 'Rua Deputado Bernardino Vaz, 310', \"neighborhood\" = 'Bandeirantes', \"city\" = 'Belo Horizonte', \"state\" = 'MG', \"is_active\" = false, \"updated_at\" = '2026-10-26 14:31:39.241866+00:00'::timestamptz WHERE \"properties_property\".\"id\" = 242"
+    },
+    {
+      "index": 24,
+      "time_s": "0.000",
+      "sql": "DELETE FROM \"properties_propertyphoto\" WHERE \"properties_propertyphoto\".\"property_id\" = 242"
+    },
+    {
+      "index": 25,
+      "time_s": "0.000",
+      "sql": "INSERT INTO \"properties_propertyphoto\" (\"property_id\", \"url\", \"position\") VALUES (242, 'https://fotos.portalnexo.com.br/NX-10488/01.jpg', 0), (242, 'https://fotos.portalnexo.com.br/NX-10488/02.jpg', 1) RETURNING \"properties_propertyphoto\".\"id\""
+    },
+    {
+      "index": 26,
+      "time_s": "0.000",
+      "sql": "SELECT \"properties_property\".\"id\", \"properties_property\".\"source\", \"properties_property\".\"external_id\", \"properties_property\".\"title\", \"properties_property\".\"description\", \"properties_property\".\"transaction\", \"properties_property\".\"price\", \"properties_property\".\"bedrooms\", \"properties_property\".\"bathrooms\", \"properties_property\".\"parking_spaces\", \"properties_property\".\"area_m2\", \"properties_property\".\"address\", \"properties_property\".\"neighborhood\", \"properties_property\".\"city\", \"properties_property\".\"state\", \"properties_property\".\"is_active\", \"properties_property\".\"created_at\", \"properties_property\".\"updated_at\" FROM \"properties_property\" WHERE (\"properties_property\".\"external_id\" = 'NX-11002' AND \"properties_property\".\"source\" = 'NEXO') ORDER BY \"properties_property\".\"updated_at\" DESC LIMIT 1"
+    },
+    {
+      "index": 27,
+      "time_s": "0.000",
+      "sql": "UPDATE \"properties_property\" SET \"title\" = 'Studio mobiliado no Savassi', \"description\" = 'Studio compacto, mobiliado, pronto para morar.', \"transaction\" = 'RENT', \"price\" = 3400.00, \"bedrooms\" = 1, \"bathrooms\" = 1, \"parking_spaces\" = 1, \"area_m2\" = 38, \"address\" = 'Rua Pernambuco, 1255, Apto 402', \"neighborhood\" = 'Savassi', \"city\" = 'Belo Horizonte', \"state\" = 'MG', \"is_active\" = true, \"updated_at\" = '2026-10-26 14:31:39.243951+00:00'::timestamptz WHERE \"properties_property\".\"id\" = 243"
+    },
+    {
+      "index": 28,
+      "time_s": "0.000",
+      "sql": "DELETE FROM \"properties_propertyphoto\" WHERE \"properties_propertyphoto\".\"property_id\" = 243"
+    },
+    {
+      "index": 29,
+      "time_s": "0.000",
+      "sql": "INSERT INTO \"properties_propertyphoto\" (\"property_id\", \"url\", \"position\") VALUES (243, 'https://fotos.portalnexo.com.br/NX-11002/01.jpg', 0), (243, 'https://fotos.portalnexo.com.br/NX-11002/02.jpg', 1) RETURNING \"properties_propertyphoto\".\"id\""
+    },
+    {
+      "index": 30,
+      "time_s": "0.000",
+      "sql": "UPDATE \"properties_property\" SET \"is_active\" = false, \"updated_at\" = '2026-10-26 14:31:39.245446+00:00'::timestamptz WHERE (\"properties_property\".\"is_active\" AND \"properties_property\".\"source\" = 'NEXO' AND NOT (\"properties_property\".\"external_id\" IN ('NX-10233', 'NX-11002', 'NX-10488', 'NX-11288')))"
+    },
+    {
+      "index": 31,
+      "time_s": "0.000",
+      "sql": "UPDATE \"properties_importrun\" SET \"status\" = 'SUCCESS', \"finished_at\" = '2026-10-26 14:31:39.245848+00:00'::timestamptz, \"created_count\" = 0, \"updated_count\" = 3, \"skipped_count\" = 1 WHERE \"properties_importrun\".\"id\" = 94"
+    },
+    {
+      "index": 32,
+      "time_s": "0.000",
+      "sql": "SELECT \"properties_property\".\"id\", \"properties_property\".\"source\", \"properties_property\".\"external_id\", \"properties_property\".\"title\", \"properties_property\".\"description\", \"properties_property\".\"transaction\", \"properties_property\".\"price\", \"properties_property\".\"bedrooms\", \"properties_property\".\"bathrooms\", \"properties_property\".\"parking_spaces\", \"properties_property\".\"area_m2\", \"properties_property\".\"address\", \"properties_property\".\"neighborhood\", \"properties_property\".\"city\", \"properties_property\".\"state\", \"properties_property\".\"is_active\", \"properties_property\".\"created_at\", \"properties_property\".\"updated_at\" FROM \"properties_property\" WHERE \"properties_property\".\"external_id\" = 'NX-10233' LIMIT 21"
+    },
+    {
+      "index": 33,
+      "time_s": "0.000",
+      "sql": "SELECT COUNT(*) AS \"__count\" FROM \"properties_property\""
+    }
+  ]
+}

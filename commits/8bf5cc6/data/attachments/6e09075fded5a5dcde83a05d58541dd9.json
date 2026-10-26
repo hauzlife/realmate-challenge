@@ -1,0 +1,17 @@
+{
+  "test": "src/tests/test_properties_api.py::test_list_filters_by_min_price",
+  "duration_ms": 6.21,
+  "sql_queries_count": 2,
+  "queries": [
+    {
+      "index": 1,
+      "time_s": "0.002",
+      "sql": "INSERT INTO \"properties_property\" (\"source\", \"external_id\", \"title\", \"description\", \"transaction\", \"price\", \"bedrooms\", \"bathrooms\", \"parking_spaces\", \"area_m2\", \"address\", \"neighborhood\", \"city\", \"state\", \"is_active\", \"created_at\", \"updated_at\") VALUES ('NEXO', 'NX-1', 'Apartamento 2 quartos', '', 'SALE', 500000.00, 2, 0, 0, NULL, 'Rua A, 100', '', 'Belo Horizonte', 'MG', true, '2026-10-26 14:31:39.448199+00:00'::timestamptz, '2026-10-26 14:31:39.448205+00:00'::timestamptz) RETURNING \"properties_property\".\"id\""
+    },
+    {
+      "index": 2,
+      "time_s": "0.001",
+      "sql": "SELECT COUNT(*) AS \"__count\" FROM \"properties_property\" WHERE (\"properties_property\".\"is_active\" AND \"properties_property\".\"price\" >= 600000)"
+    }
+  ]
+}
