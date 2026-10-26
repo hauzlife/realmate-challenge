@@ -87,6 +87,10 @@ CELERY_BEAT_SCHEDULE = {
         "task": "properties.import_nexo",
         "schedule": crontab(hour=3, minute=0),
     },
+    "import-vitrine-properties": {
+        "task": "properties.import_vitrine",
+        "schedule": crontab(hour=3, minute=30),
+    },
     "process-properties": {
         "task": "properties.process_catalog",
         "schedule": crontab(hour=4, minute=0),
@@ -94,6 +98,9 @@ CELERY_BEAT_SCHEDULE = {
 }
 
 NEXO_FEED_PATH = Path(os.environ.get("NEXO_FEED_PATH", PROJECT_ROOT / "data" / "nexo_catalogo.xml"))
+VITRINE_FEED_PATH = Path(
+    os.environ.get("VITRINE_FEED_PATH", PROJECT_ROOT / "data" / "vitrine_catalogo.json")
+)
 
 LOGGING = {
     "version": 1,
